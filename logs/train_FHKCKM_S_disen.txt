@@ -1,0 +1,32 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "/home/hao/miniconda3/envs/frec-gpu/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/hao/miniconda3/envs/frec-gpu/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/hao/FRec/DisenID/src/training/train_rqvae.py", line 431, in <module>
+    train(config)
+  File "/home/hao/FRec/DisenID/src/training/train_rqvae.py", line 322, in train
+    for batch in dataloader:
+  File "/home/hao/miniconda3/envs/frec-gpu/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 708, in __next__
+    data = self._next_data()
+  File "/home/hao/miniconda3/envs/frec-gpu/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 764, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/hao/miniconda3/envs/frec-gpu/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+  File "/home/hao/miniconda3/envs/frec-gpu/lib/python3.10/site-packages/torch/utils/data/_utils/collate.py", line 398, in default_collate
+    return collate(batch, collate_fn_map=default_collate_fn_map)
+  File "/home/hao/miniconda3/envs/frec-gpu/lib/python3.10/site-packages/torch/utils/data/_utils/collate.py", line 211, in collate
+    return [
+  File "/home/hao/miniconda3/envs/frec-gpu/lib/python3.10/site-packages/torch/utils/data/_utils/collate.py", line 212, in <listcomp>
+    collate(samples, collate_fn_map=collate_fn_map)
+  File "/home/hao/miniconda3/envs/frec-gpu/lib/python3.10/site-packages/torch/utils/data/_utils/collate.py", line 155, in collate
+    return collate_fn_map[elem_type](batch, collate_fn_map=collate_fn_map)
+  File "/home/hao/miniconda3/envs/frec-gpu/lib/python3.10/site-packages/torch/utils/data/_utils/collate.py", line 285, in collate_numpy_array_fn
+    return collate([torch.as_tensor(b) for b in batch], collate_fn_map=collate_fn_map)
+  File "/home/hao/miniconda3/envs/frec-gpu/lib/python3.10/site-packages/torch/utils/data/_utils/collate.py", line 285, in <listcomp>
+    return collate([torch.as_tensor(b) for b in batch], collate_fn_map=collate_fn_map)
+KeyboardInterrupt
+Using device: cpu
+Initializing domain embeddings with mean of per-domain items...
+[Codebook Init] Skip KMeans init. Use random codebook initialization.

@@ -1,0 +1,28 @@
+device: cuda
+
+data:
+  semantic_id_pt_path: /home/hao/FRec/DisenID/codebooks/beauty/semantic_ids_all.pt
+  tfrecord_pattern: partition_*.tfrecord.gz
+  skip_unknown_items: false
+  min_seq_len: 2
+  max_seq_len: 50
+
+  test:
+    tfrecord_dir: /mnt/data_2/data_hao/DisenID/data/Amazon/beauty/testing
+
+checkpoint:
+  path: /home/hao/FRec/DisenID/checkpoints/t5_beauty/best.pt
+
+evaluation:
+  batch_size: 32
+  num_workers: 4
+
+  # beam search over semantic-ID sequences
+  beam_size: 20
+  num_return_sequences: 20
+
+  # final item-level metrics
+  metrics_k: [5, 10, 20]
+
+  # optional
+  output_path: /home/hao/FRec/DisenID/checkpoints/t5_beauty/eval_results.yaml

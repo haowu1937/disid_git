@@ -1,0 +1,41 @@
+# nohup python -m src.training.train_rqvae --config ./configs/train_sid_FHCKM+S_disen_exp0.yaml > ./logs/train_FHKCKM_S_disen_exp0.txt 2>&1 &
+model:
+  type: disentangle #baseline
+  input_dim: 768
+  hidden_dim: 128
+  codebook_size: 256
+  num_layers: 3
+  num_shared_layers: 1
+  commitment_weight: 0.25
+#  encoder_hidden_dims: [512, 256]
+#  decoder_hidden_dim: [256, 512]
+  codebook_weight: 1
+  normalize_codebook_loss: true
+  domain_embed_init: mean
+  alpha: 0.015
+
+data:
+  domain_configs:
+    - name: FHCKM
+      embed_path: /mnt/data_2/data_hao/DisenID/data/Amazon/FHCKM/shard_00000_fused.npy
+      # id_map_path: /mnt/data_2/data_hao/DisenID/data/Amazon/FHCKM/shard_00000_ids_incremental.npy
+    - name: Scientific
+      embed_path: /mnt/data_2/data_hao/DisenID/data/Amazon/downstream/Scientific/shard_00000_fused.npy
+      # id_map_path: /mnt/data_2/data_hao/DisenID/data/Amazon/downstream/Scientific/shard_00000_ids_incremental.npy
+
+  expected_embed_dim: 768
+  num_domains: 2
+
+training:
+  seed: 42
+  batch_size: 4096
+  num_workers: 0
+  pin_memory: true
+  lr: 0.0012
+  weight_decay: 0.0
+  num_epochs: 200
+  save_dir: /mnt/data_2/data_hao/DisenID/sid_checkpoints/FHKCKM_S_disen_lr12/
+  save_every: 10
+  grad_clip: 1.0
+
+

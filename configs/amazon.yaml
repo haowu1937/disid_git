@@ -1,0 +1,34 @@
+# configs/baseline.yaml
+model:
+  type: baseline
+  input_dim: 768
+  hidden_dim: 256
+  codebook_size: 256
+  num_layers: 3
+  commitment_weight: 0.25
+  codebook_weight: 1
+  normalize_codebook_loss: true
+
+data:
+  domain_configs:
+    - name: QB
+      embed_path: /mnt/data_2/data_oleg/recsys/ninerec/Downstream_datasets/QB/CLIP_emb/shard_00000_fused.npy
+      # id_map_path is optional, omitted here
+    - name: TN
+      embed_path: /mnt/data_2/data_oleg/recsys/ninerec/Downstream_datasets/TN/CLIP_emb/shard_00000_fused.npy
+  expected_embed_dim: 768
+  num_domains: 2   # explicit, will be used by HierarchicalRQVAE
+
+training:
+  seed: 42
+  batch_size: 256
+  num_workers: 0
+  pin_memory: true
+  lr: 0.001
+  weight_decay: 0.0
+  num_epochs: 200
+  save_dir: ./checkpoints/baseline
+  save_every: 10
+  grad_clip: 1.0
+
+

@@ -1,0 +1,66 @@
+# nohup python -m src.downstream.train_t5 --config ./configs/train_sid_FHCKM+S.yaml > ./logs/train_FHKCKM_S.txt 2>&1 &
+
+seed: 42
+device: cuda
+
+data:
+  semantic_id_pt_path: /home/hao/FRec/DisenID/codebook/ninerec/semantic_ids_domain_1.pt
+  tfrecord_pattern: partition_*.tfrecord.gz
+  skip_unknown_items: false
+  min_seq_len: 2
+  max_seq_len: 50
+
+  train:
+    tfrecord_dir: /mnt/data_2/data_hao/DisenID/data/Amazon/FHCKM/train
+
+  val:
+    tfrecord_dir: /mnt/data_2/data_hao/DisenID/data/Amazon/FHCKM/valid
+
+  test:
+    tfrecord_dir: /mnt/data_2/data_hao/DisenID/data/Amazon/FHCKM/test
+
+model:
+  d_model: 256
+  d_ff: 1024
+  num_heads: 4
+  num_encoder_layers: 4
+  num_decoder_layers: 4
+  dropout_rate: 0.15
+  layer_norm_epsilon: 1.0e-6
+  initializer_factor: 1.0
+  feed_forward_proj: relu
+
+training:
+  batch_size: 256
+  eval_batch_size: 1024
+  num_workers: 4
+  num_epochs: 200
+  grad_clip_norm: 1.0
+  log_every_steps: 100
+  early_stopping_patience: 5
+  min_history_len: 1
+  max_history_len: 50
+
+evaluation:
+  batch_size: 1024
+  num_workers: 4
+  beam_size: 10
+  num_return_sequences: 10
+
+  # only use first K validation samples for retrieval evaluation
+  val_max_eval_batches: 2
+  eval_every_n: 3 # only run validation every n epochs
+
+  # optional; set to null to evaluate on full test set
+  test_max_eval_batches: null
+
+optimizer:
+  lr: 8.0e-5
+  betas: [0.9, 0.999]
+  eps: 1.0e-8
+  weight_decay: 1.0e-4
+
+checkpoint:
+  output_dir: /home/hao/FRec/DisenID/checkpoints/FHKCKM_pretrain
+  best_ckpt_path: /home/hao/FRec/DisenID/checkpoints/FHKCKM_pretrain/best.pt
+  last_ckpt_path: /home/hao/FRec/DisenID/checkpoints/FHKCKM_pretrain/last.pt

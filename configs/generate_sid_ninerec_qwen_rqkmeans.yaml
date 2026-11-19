@@ -1,0 +1,33 @@
+# configs/generate_sid_ninerec_qwen_rqkmeans.yaml
+
+model:
+  type: rqkmeans
+  input_dim: 2048
+  codebook_size: 256
+  num_layers: 3
+  keep_empty_codes: true
+
+data:
+  domain_configs:
+    - name: QB
+      embed_path: /mnt/data_2/data_hao/DisenID/data/QB/Qwen3VL_emb/shard_00000_fused.npy
+      id_map_path: /mnt/data_2/data_hao/DisenID/data/QB/Qwen3VL_emb/shard_00000_ids_incremental.npy
+
+    - name: TN
+      embed_path: /mnt/data_2/data_hao/DisenID/data/TN/Qwen3VL_emb/shard_00000_fused.npy
+      id_map_path: /mnt/data_2/data_hao/DisenID/data/TN/Qwen3VL_emb/shard_00000_ids_incremental.npy
+
+    - name: Bili #Bili500k
+      embed_path: /mnt/data_2/data_hao/DisenID/data/Bili_500K/Qwen3VL_emb/shard_00000_fused.npy
+      id_map_path: /mnt/data_2/data_hao/DisenID/data/Bili_500K/Qwen3VL_emb/shard_00000_ids_incremental.npy
+
+  expected_embed_dim: 2048
+
+generation:
+  seed: 42
+  batch_size: 256
+  num_workers: 0
+  pin_memory: true
+
+  ckpt_path: /mnt/data_2/data_hao/DisenID/sid_checkpoints/ninerec/qwen_bili500k_TN_QB_rqkmeans/rqkmeans_final.pt
+  out_dir: /home/hao/FRec/DisenID/sid_outputs/ninerec/qwen_bili500k_TN_QB_rqkmeans

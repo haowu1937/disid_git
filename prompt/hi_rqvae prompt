@@ -1,0 +1,606 @@
+I already have:
+1. an existing `rqvae` implementation (baseline)
+
+Based on this baseline, I want you to implement a new `hi_rqvae` module for hierarchical shared/private semantic ID learning in a multi-domain recommendation setting.
+
+Your task is not to redesign everything from scratch.
+Instead, you should:
+1. carefully understand the intended hierarchical design below
+2. reuse the existing `rqvae` coding style, module structure, interfaces, tensor conventions, and loss style as much as possible
+3. produce a clean and usable `hi_rqvae` implementation that is maximally consistent with the baseline `rqvae`
+
+Do not give only high-level pseudocode.
+I want concrete code.
+
+---
+
+## Goal
+
+Implement a hierarchical RQ-VAE (`hi_rqvae`) whose logic satisfies the intended design requirements below, while staying as consistent as possible with my existing `rqvae` implementation.
+
+---
+
+## Intended Design Requirements for hi_rqvae
+
+The intended model is a hierarchical RQ-VAE for multi-domain recommendation.
+
+### Core idea
+- Total quantization layers: `L`
+- First `N` layers are **shared codebooks**
+- Remaining `L-N` layers are **domain-private codebooks**
+
+This means:
+- shared layers are used by samples from all domains
+- private layers should use different codebooks for different domains
+
+---
+
+## Inputs
+
+The model should support:
+
+- item embedding `x`
+- domain id `domain_id`
+
+Assume:
+- `x` has shape `[B, input_dim]`
+- `domain_id` has shape `[B]`
+- `domain_id` is an integer tensor with values in `[0, num_domains - 1]`
+
+The implementation should support a batch containing samples from multiple domains.
+
+---
+
+## Forward logic
+
+The model should do:
+
+1. Encode input:
+   `z = encoder(x)`
+
+2. Shared quantization for layers `1..N`
+- use shared codebooks
+- do not use domain embedding here
+- perform residual quantization layer by layer
+
+3. Private quantization for layers `N+1..L`
+
+Before the first private quantization step:
+- let `r` be the residual after the last shared quantization layer
+- inject a domain-conditioned signal `e_domain` once:
+  `r_cond = r + e_domain`
+- `e_domain` is a learnable domain embedding
+- this domain embedding is used only as a conditioning signal for private quantization
+- domain embedding must not directly become part of the final reconstruction target
+- the model should still reconstruct the original latent `z`, not `z + e_domain`
+
+More specifically:
+- for the first private layer, code selection should be based on `r_cond = r + e_domain`
+- however, the quantized vector selected by the private codebook should still be treated as approximating the original residual information, not as reconstructing `e_domain` itself
+- after code selection, the residual update path should remain centered on the original residual stream, i.e. domain embedding should influence which code is selected, but should not be accumulated into the reconstruction target
+
+For all private layers:
+- use the private codebook corresponding to each sample’s `domain_id`
+- continue residual quantization layer by layer
+- do not re-add domain embedding at every private layer unless there is a very strong reason and you explicitly explain it
+
+4. Reconstruction
+- sum / combine all quantized vectors from shared and private layers
+- decode to reconstruct the original input embedding
+4. Reconstruction
+- sum / combine all quantized vectors from shared and private layers
+- decode to reconstruct the original input embedding
+
+Important:
+- <mark>the final reconstruction target is the original input embedding / latent representation</mark>
+- <mark>the reconstruction path should not implicitly shift the target to `z + e_domain`</mark>
+---
+
+## Domain embedding
+
+Requirements:
+- one learnable embedding per domain
+- embedding dimension must match the latent quantization dimension
+- should only be injected once before private quantization starts
+- should not affect shared quantization layers
+- it affects private code selection only
+- it should not be directly added into the final reconstructed latent
+- the decoder input should correspond to the sum of quantized shared/private vectors only, not quantized vectors plus an explicit domain embedding term
+
+---
+
+## Output semantic ID
+
+Each item should get:
+- shared token indices from the first `N` layers
+- private token indices from the remaining `L-N` layers
+
+Final semantic ID format must be:
+
+`[shared_1, ..., shared_N, private_1, ..., private_(L-N)]`
+
+Please keep this ordering explicit in the implementation.
+
+---
+
+## Loss
+
+The implementation should include:
+- reconstruction loss
+- commitment loss
+- codebook loss
+
+And logically:
+- shared codebooks are trained using samples from all domains
+- private codebooks are updated only by samples from the corresponding domain
+
+Please make sure the detach logic and gradient flow are correct for VQ / RQ-VAE style training.
+
+---
+
+## Engineering expectations
+
+Please make the implementation consistent with the baseline `rqvae` in the following aspects as much as possible:
+
+1. class structure
+2. constructor style / config arguments
+3. forward input signature
+4. forward return format
+5. helper methods such as encode / decode / quantize if baseline has them
+6. loss dictionary naming
+7. tensor shape conventions
+8. logging/statistics style
+9. utility/helper function style
+10. overall readability and maintainability
+
+Do not introduce unnecessary abstractions if the baseline does not use them.
+
+---
+
+## Edge cases to handle
+
+Please consider whether the implementation should behave correctly for:
+- `N = 0` (all layers private)
+- `N = L` (all layers shared)
+- batches containing multiple domains in the same forward pass
+
+If any of these require special handling, implement it explicitly.
+
+---
+
+## What I want from you
+
+### Part A. First analyze the baseline rqvae
+Before writing code, briefly summarize:
+
+1. the baseline class structure
+2. its constructor pattern
+3. its forward return values
+4. how quantization is implemented
+5. how losses are computed
+6. what must be preserved for compatibility
+
+Keep this short but concrete.
+
+---
+
+### Part B. Then explain your design for hi_rqvae
+Before showing code, explain:
+
+1. which parts are reused directly from baseline `rqvae`
+2. which parts are newly added for hierarchical shared/private quantization
+3. how shared codebooks are represented
+4. how private codebooks are represented
+5. how mixed-domain batches are handled
+6. how domain embedding is injected
+7. how semantic IDs are assembled
+
+Do not stay vague.
+
+---
+
+### Part C. Then provide the code
+Please provide a full implementation of `hi_rqvae`.
+
+Requirements:
+- code should be complete, not partial snippets
+- preserve baseline style as much as possible
+- include necessary helper methods
+- include comments only where useful
+- avoid changing unrelated baseline behaviors unless necessary
+
+---
+
+### Part D. Then provide a compatibility checklist
+After the code, provide a checklist of:
+1. what is fully compatible with baseline `rqvae`
+2. what is intentionally different
+3. any assumptions you had to make because the baseline did not specify enough detail
+
+---
+
+## Important constraints
+
+- Do not silently invent a completely different architecture.
+- Do not replace residual quantization with a different quantization method.
+- Do not ignore batch-wise mixed-domain behavior.
+- Do not make private codebooks accidentally shared across domains.
+- Do not let domain embedding leak into shared layers.
+- Do not change forward outputs arbitrarily if the baseline already has an established format.
+- When unsure, prefer consistency with the baseline `rqvae`.
+
+---
+
+I will provide the baseline `rqvae` code below.
+
+Please read it carefully and then generate the new `hi_rqvae` implementation.
+
+
+==== rqvae.py ====
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from typing import List, Optional
+from src.models.mlp import MLP
+
+class RQVAE(nn.Module):
+    """
+    Residual Quantization VAE-style module (RQ-VAE / VQ-style training)
+
+    Key fixes vs. your version:
+    1) Correct VQ losses (codebook loss + commitment loss) detach directions.
+    2) Add Straight-Through Estimator (STE) so recon gradients flow decoder -> encoder.
+    3) Use fast squared L2 distance instead of torch.cdist broadcasting.
+    4) Proper tensor init for losses + optional normalization by num_layers.
+    """
+
+    def __init__(
+        self,
+        input_dim: int,
+        hidden_dim: int,
+        codebook_size: int,
+        num_layers: int,
+        commitment_weight: float = 0.25,
+        codebook_weight: float = 1.0,
+        normalize_codebook_loss: bool = True,
+        encoder_hidden_dims: Optional[List[int]] = None,
+        decoder_hidden_dims: Optional[List[int]] = None,
+        activation: nn.Module = nn.ReLU,
+        bias: bool = True,
+        dropout: float = 0.0,
+    ):
+        super().__init__()
+        self.input_dim = input_dim
+        self.hidden_dim = hidden_dim
+        self.codebook_size = codebook_size
+        self.num_layers = num_layers
+        self.commitment_weight = float(commitment_weight)
+        self.codebook_weight = float(codebook_weight)
+        self.normalize_codebook_loss = bool(normalize_codebook_loss)
+        if encoder_hidden_dims is None:
+            encoder_hidden_dims = [512, 256, 128]  # 3-layer encoder
+        if decoder_hidden_dims is None:
+            decoder_hidden_dims = [128, 256, 512]  # 3-layer decoder
+        self.encoder_hidden_dims = list(encoder_hidden_dims)
+        self.decoder_hidden_dims = list(decoder_hidden_dims)
+
+        self.encoder = MLP(
+            input_dim=input_dim,
+            output_dim=hidden_dim,
+            hidden_dim_list=list(self.encoder_hidden_dims),  # avoid in-place append side effect
+            activation=activation,
+            bias=bias,
+            dropout=dropout,
+        )
+
+        # One embedding table per layer
+        self.codebooks = nn.ModuleList(
+            [nn.Embedding(codebook_size, hidden_dim) for _ in range(num_layers)]
+        )
+
+        self.decoder = MLP(
+            input_dim=hidden_dim,
+            output_dim=input_dim,
+            hidden_dim_list=list(self.decoder_hidden_dims),  # avoid in-place append side effect
+            activation=activation,
+            bias=bias,
+            dropout=dropout,
+        )
+
+        # Optional: small init helps stability
+        for emb in self.codebooks:
+            nn.init.uniform_(emb.weight, -1.0 / codebook_size, 1.0 / codebook_size)
+
+    @staticmethod
+    def _nearest_code(residual: torch.Tensor, codebook_weight: torch.Tensor) -> torch.Tensor:
+        """
+        residual: [B, D]
+        codebook_weight: [K, D]
+        return idx: [B]
+        """
+        # Squared L2: ||r-c||^2 = ||r||^2 + ||c||^2 - 2 r·c
+        r2 = (residual ** 2).sum(dim=1, keepdim=True)          # [B, 1]
+        c2 = (codebook_weight ** 2).sum(dim=1).unsqueeze(0)    # [1, K]
+        dist = r2 + c2 - 2.0 * residual @ codebook_weight.t()  # [B, K]
+        return dist.argmin(dim=1)
+
+    @staticmethod
+    def _extract_x_from_batch(batch) -> torch.Tensor:
+        """
+        Expected current dataset format:
+          batch = (x, d)
+
+        This helper keeps the init method slightly more robust without changing training logic.
+        """
+        if isinstance(batch, (list, tuple)):
+            if len(batch) == 0:
+                raise ValueError("Received an empty batch.")
+            return batch[0]
+        if isinstance(batch, dict):
+            if "x" in batch:
+                return batch["x"]
+            raise ValueError("Batch dict does not contain key 'x'.")
+        if torch.is_tensor(batch):
+            return batch
+        raise TypeError(f"Unsupported batch type for KMeans init: {type(batch)}")
+
+    @staticmethod
+    def _run_kmeans_with_fallback(
+        samples_cpu: torch.Tensor,
+        codebook_size: int,
+        seed: int,
+        layer: int,
+    ) -> torch.Tensor:
+        """
+        samples_cpu: [N, D] on CPU, float32
+        returns:
+          centers_cpu: [codebook_size, D] on CPU, float32
+
+        Fallback strategy when N < codebook_size:
+          1) Run KMeans with n_clusters = N
+          2) Pad the remaining centers by sampling existing samples with replacement
+
+        This avoids crashes while keeping behavior simple and reproducible.
+        """
+        try:
+            from sklearn.cluster import KMeans
+        except ImportError as e:
+            raise ImportError(
+                "KMeans initialization requires scikit-learn. "
+                "Please install it first, e.g. `pip install scikit-learn`."
+            ) from e
+
+        if samples_cpu.ndim != 2:
+            raise ValueError(f"samples_cpu must be 2D, got shape={tuple(samples_cpu.shape)}")
+
+        num_samples, dim = samples_cpu.shape
+        if num_samples <= 0:
+            raise ValueError("Cannot run KMeans init with zero samples.")
+
+        if num_samples == 1:
+            print(
+                f"[KMeans Init][Layer {layer}] only 1 sample is available; "
+                f"repeat it to fill all {codebook_size} codebook entries."
+            )
+            return samples_cpu.repeat(codebook_size, 1)
+
+        if num_samples < codebook_size:
+            print(
+                f"[KMeans Init][Layer {layer}] num_samples={num_samples} < codebook_size={codebook_size}; "
+                f"run KMeans with n_clusters={num_samples} and pad the rest by resampling existing samples."
+            )
+            n_clusters = num_samples
+        else:
+            n_clusters = codebook_size
+
+        kmeans = KMeans(
+            n_clusters=n_clusters,
+            random_state=seed,
+            n_init=10,
+        )
+        kmeans.fit(samples_cpu.numpy())
+        centers_cpu = torch.from_numpy(kmeans.cluster_centers_).to(dtype=torch.float32)
+
+        # Pad to full codebook size if needed
+        if centers_cpu.size(0) < codebook_size:
+            pad_count = codebook_size - centers_cpu.size(0)
+            g = torch.Generator(device="cpu")
+            g.manual_seed(seed + 1000 + layer)
+            pad_idx = torch.randint(
+                low=0,
+                high=num_samples,
+                size=(pad_count,),
+                generator=g,
+            )
+            extra_centers = samples_cpu.index_select(0, pad_idx)
+            centers_cpu = torch.cat([centers_cpu, extra_centers], dim=0)
+
+        # Just in case, enforce exact shape [K, D]
+        if centers_cpu.size(0) != codebook_size or centers_cpu.size(1) != dim:
+            raise RuntimeError(
+                f"Unexpected centers shape after KMeans fallback: "
+                f"got {tuple(centers_cpu.shape)}, expected ({codebook_size}, {dim})"
+            )
+
+        return centers_cpu
+
+    @torch.no_grad()
+    def init_codebooks_with_kmeans(
+        self,
+        dataloader,
+        device,
+        max_init_batches=None,
+        seed: int = 42,
+    ) -> None:
+        """
+        Initialize codebook embeddings using KMeans on encoder outputs and
+        layer-wise residual quantization.
+
+        Procedure:
+          1) Collect x from dataloader
+          2) Encode h = encoder(x)
+          3) For each codebook layer:
+               - run KMeans on current residual
+               - write cluster centers into codebook weights
+               - assign each sample to nearest center
+               - update residual = residual - assigned_center
+
+        Args:
+            dataloader:
+                DataLoader over training items.
+            device:
+                Device used to run the encoder.
+            max_init_batches:
+                If not None, only use the first max_init_batches batches.
+                Useful to speed up initialization on very large datasets.
+            seed:
+                Random seed for reproducible KMeans / fallback sampling.
+        """
+        was_training = self.training
+        self.eval()
+
+        if max_init_batches is not None:
+            max_init_batches = int(max_init_batches)
+            if max_init_batches <= 0:
+                max_init_batches = None
+
+        print("[KMeans Init] Start codebook initialization with KMeans.")
+        print(
+            f"[KMeans Init] Settings: "
+            f"num_layers={self.num_layers}, codebook_size={self.codebook_size}, "
+            f"hidden_dim={self.hidden_dim}, max_init_batches={max_init_batches}, seed={seed}"
+        )
+
+        all_h_cpu = []
+        used_batches = 0
+        used_samples = 0
+
+        for batch_idx, batch in enumerate(dataloader):
+            if max_init_batches is not None and batch_idx >= max_init_batches:
+                break
+
+            x = self._extract_x_from_batch(batch)
+            x = x.to(device, non_blocking=True).float()
+
+            h = self.encoder(x)  # [B, hidden_dim]
+            all_h_cpu.append(h.detach().to("cpu", dtype=torch.float32, non_blocking=False))
+
+            used_batches += 1
+            used_samples += int(h.size(0))
+
+        if len(all_h_cpu) == 0:
+            raise ValueError("No samples were collected for KMeans initialization.")
+
+        residual_cpu = torch.cat(all_h_cpu, dim=0).contiguous()  # [N, D], CPU float32
+
+        print(
+            f"[KMeans Init] Finished feature collection: "
+            f"batches={used_batches}, samples={used_samples}, residual_shape={tuple(residual_cpu.shape)}"
+        )
+
+        for layer in range(self.num_layers):
+            print(f"[KMeans Init][Layer {layer}] Running KMeans on residuals ...")
+
+            centers_cpu = self._run_kmeans_with_fallback(
+                samples_cpu=residual_cpu,
+                codebook_size=self.codebook_size,
+                seed=seed + layer,
+                layer=layer,
+            )
+
+            # Directly write centers into the current codebook weights
+            emb = self.codebooks[layer]
+            emb.weight.copy_(
+                centers_cpu.to(device=emb.weight.device, dtype=emb.weight.dtype)
+            )
+
+            # Hard assignment with the just-initialized codebook
+            idx = self._nearest_code(residual_cpu, centers_cpu)      # [N]
+            assigned_cpu = F.embedding(idx, centers_cpu)             # [N, D]
+
+            used_codes = int(idx.unique().numel())
+            mean_residual_norm_before = float(residual_cpu.norm(dim=1).mean().item())
+
+            # Residual update for next layer
+            residual_cpu = residual_cpu - assigned_cpu
+
+            mean_residual_norm_after = float(residual_cpu.norm(dim=1).mean().item())
+
+            print(
+                f"[KMeans Init][Layer {layer}] done | "
+                f"used_codes={used_codes}/{self.codebook_size} | "
+                f"mean_residual_l2_before={mean_residual_norm_before:.6f} | "
+                f"mean_residual_l2_after={mean_residual_norm_after:.6f}"
+            )
+
+        print("[KMeans Init] All codebooks initialized successfully.")
+
+        if was_training:
+            self.train()
+
+    def forward(self, x: torch.Tensor):
+        """
+        x: [B, input_dim]
+        returns:
+          quantized: [B, hidden_dim]
+          indices:   [B, num_layers]
+          losses: dict
+        """
+        x_orig = x
+        h = self.encoder(x)  # [B, hidden_dim]
+
+        quantized = torch.zeros_like(h)
+        residual = h
+
+        indices = []
+        codebook_loss = torch.zeros([], device=h.device, dtype=h.dtype)
+        commit_loss = torch.zeros([], device=h.device, dtype=h.dtype)
+
+        for layer in range(self.num_layers):
+            emb = self.codebooks[layer]              # nn.Embedding
+            w = emb.weight                           # [K, D]
+
+            # 1) hard assignment (non-differentiable wrt idx)
+            idx = self._nearest_code(residual, w)    # [B]
+            indices.append(idx)
+
+            # 2) embedding lookup: quantized vector
+            q = emb(idx)                             # [B, D]
+
+            # 3) VQ losses
+            codebook_loss = codebook_loss + F.mse_loss(q, residual.detach())
+            commit_loss = commit_loss + F.mse_loss(residual, q.detach())
+
+            # 4) STE: forward uses q, backward acts like identity on residual
+            q_st = residual + (q - residual).detach()
+
+            # 5) accumulate and update quantized
+            quantized = quantized + q_st
+
+            # For next layer residual
+            residual = residual - q.detach()
+
+        # Optional normalization so loss scale doesn't grow with num_layers
+        if self.normalize_codebook_loss and self.num_layers > 0:
+            codebook_loss = codebook_loss / self.num_layers
+            commit_loss = commit_loss / self.num_layers
+
+        # reconstruction
+        recon = self.decoder(quantized)
+        recon_loss = F.mse_loss(recon, x_orig)
+
+        total_loss = (
+            recon_loss
+            + self.codebook_weight * codebook_loss
+            + self.commitment_weight * commit_loss
+        )
+
+        losses = {
+            "recon": recon_loss,
+            "codebook": codebook_loss,
+            "commit": commit_loss,
+            "total": total_loss,
+        }
+
+        return quantized, torch.stack(indices, dim=1), losses

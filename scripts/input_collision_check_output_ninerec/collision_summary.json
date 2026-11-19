@@ -1,0 +1,37 @@
+{
+  "num_items": 12101,
+  "embed_dim": 768,
+  "thresholds": [
+    0.99,
+    0.97,
+    0.95,
+    0.9
+  ],
+  "collision_rates": {
+    "0.99": 0.012147756383769937,
+    "0.97": 0.14874803735228492,
+    "0.95": 0.404512023799686,
+    "0.9": 0.9341376745723494
+  },
+  "domain_stats": {
+    "Beauty": 12101
+  },
+  "faiss_config": {
+    "nlist": 1024,
+    "nprobe": 64,
+    "top_k": 50,
+    "train_size": 50000,
+    "add_batch_size": 100000,
+    "query_batch_size": 10000
+  },
+  "dataset_config": {
+    "expected_embed_dim": 768,
+    "domain_configs": [
+      {
+        "name": "Beauty",
+        "embed_path": "/home/hao/FRec/DisenID/data/Amazon/beauty/embedding.npy",
+        "id_map_path": "/home/hao/FRec/DisenID/data/Amazon/beauty/ids.npy"
+      }
+    ]
+  }
+}

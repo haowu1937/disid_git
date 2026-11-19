@@ -1,0 +1,43 @@
+model:
+  type: disentangle
+  variant: shared_vocab
+
+  input_dim: 2048
+  hidden_dim: 128
+  codebook_size: 256
+  num_layers: 3
+  num_shared_layers: 1
+
+  commitment_weight: 0.25
+  codebook_weight: 1
+  normalize_codebook_loss: true
+  domain_embed_init: mean
+
+data:
+  domain_configs:
+    - name: QB
+      embed_path: /mnt/data_2/data_hao/DisenID/data/QB/Qwen3VL_emb/shard_00000_fused.npy
+    - name: TN
+      embed_path: /mnt/data_2/data_hao/DisenID/data/TN/Qwen3VL_emb/shard_00000_fused.npy
+    - name: Bili
+      embed_path: /mnt/data_2/data_hao/DisenID/data/Bili_500K/Qwen3VL_emb/shard_00000_fused.npy
+
+  expected_embed_dim: 2048
+  num_domains: 3
+
+training:
+  seed: 42
+  batch_size: 256
+  num_workers: 0
+  pin_memory: true
+
+  lr: 0.001
+  weight_decay: 0.0
+  num_epochs: 200
+
+  save_dir: /mnt/data_2/data_hao/DisenID/sid_checkpoints/ninerec/qwen_dsrqvae_sv_bili500k_TN_QB
+  save_every: 10
+
+  grad_clip: 1.0
+  metrics_every: 1
+  metrics_max_batches: 200

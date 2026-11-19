@@ -1,0 +1,49 @@
+# configs/train_sid_ninerec.yaml
+model:
+  type: baseline
+  input_dim: 128
+  hidden_dim: 64
+  codebook_size: 512
+  num_layers: 3
+  commitment_weight: 1
+  encoder_hidden_dims: [128, 64]
+  decoder_hidden_dims: [64, 128]
+  codebook_weight: 1
+  normalize_codebook_loss: false
+
+data:
+  dataset_name: newsfeed
+  domain_configs:
+    - name: news_part_1
+      parquet_path: /mnt/data_2/data_hao/DisenID/data/docid_embedding_parquet/docid_title_embedding_1.parquet
+    - name: news_part_2
+      parquet_path: /mnt/data_2/data_hao/DisenID/data/docid_embedding_parquet/docid_title_embedding_2.parquet
+    - name: news_part_3
+      parquet_path: /mnt/data_2/data_hao/DisenID/data/docid_embedding_parquet/docid_title_embedding_3.parquet
+    - name: news_part_4
+      parquet_path: /mnt/data_2/data_hao/DisenID/data/docid_embedding_parquet/docid_title_embedding_4.parquet
+    - name: news_part_5
+      parquet_path: /mnt/data_2/data_hao/DisenID/data/docid_embedding_parquet/docid_title_embedding_5.parquet
+    - name: news_part_6
+      parquet_path: /mnt/data_2/data_hao/DisenID/data/docid_embedding_parquet/docid_title_embedding_6.parquet
+    - name: news_part_7
+      parquet_path: /mnt/data_2/data_hao/DisenID/data/docid_embedding_parquet/docid_title_embedding_7.parquet
+  expected_embed_dim: 128
+  load_all_to_memory: true
+  num_domains: 1
+
+training:
+  seed: 42
+  batch_size: 4096
+  num_workers: 8
+  pin_memory: true
+  lr: 0.0005
+  codebook_init: kmeans
+  codebook_init_max_batches: 100
+  weight_decay: 0.0
+  num_epochs: 200
+  save_dir: /mnt/data_2/data_hao/DisenID/sid_checkpoints/newsfeed_kmeans_commit_sameenc_nonorm
+  save_every: 10
+  grad_clip: 1.0
+
+

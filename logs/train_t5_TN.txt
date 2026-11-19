@@ -1,0 +1,498 @@
+nohup: ignoring input
+Using device: cuda
+Train base summary: {'num_samples': 20211, 'sid_width': 3, 'sid_vocab_size': 256, 'pad_token_id': 256, 'min_mapped_len': 3, 'max_mapped_len': 23, 'avg_mapped_len': 4.064816189203899}
+Val base summary  : {'num_samples': 20211, 'sid_width': 3, 'sid_vocab_size': 256, 'pad_token_id': 256, 'min_mapped_len': 4, 'max_mapped_len': 24, 'avg_mapped_len': 5.064816189203899}
+Test base summary : {'num_samples': 20211, 'sid_width': 3, 'sid_vocab_size': 256, 'pad_token_id': 256, 'min_mapped_len': 5, 'max_mapped_len': 25, 'avg_mapped_len': 6.064816189203899}
+Next-item samples -> train(sliding-window)=61943, val(last-item)=20211, test(last-item)=20211
+Eval samples -> val=20211, test=20211
+Codebook stats -> sid_width=3, sid_vocab_size=256, unique_sids=3302
+Model params: total=7,544,064 trainable=7,544,064
+Special tokens: pad_token_id=256, bos_token_id=257
+Semantic config: sid_width=3, base_sid_vocab_size=256, total_vocab_size=258
+Training state before loop: start_epoch=1, best_val_ndcg10=-inf, best_epoch=-1, no_improve_epochs=0
+[train] epoch=1 step=100/242 loss=5.230746
+[train] epoch=1 step=200/242 loss=4.972228
+[epoch 1] train_loss=4.884671 val_loss(full)=4.482628 val_eval=skipped (eval_every_n=3)
+[epoch 1 timing] total=30.82s | train: total=28.37s (data=0.37s, move=0.22s, compute=27.60s) | val-loss: total=2.45s (data=0.26s, move=0.00s, compute=2.11s)
+[train] epoch=2 step=100/242 loss=4.272276
+[train] epoch=2 step=200/242 loss=4.161017
+[epoch 2] train_loss=4.120446 val_loss(full)=4.049371 val_eval=skipped (eval_every_n=3)
+[epoch 2 timing] total=30.13s | train: total=27.68s (data=0.41s, move=0.23s, compute=26.84s) | val-loss: total=2.45s (data=0.26s, move=0.01s, compute=2.12s)
+[train] epoch=3 step=100/242 loss=3.794062
+[train] epoch=3 step=200/242 loss=3.737169
+[epoch 3] train_loss=3.709546 val_loss(full)=3.780044 val_recall@10(top-2048)=0.032227 val_ndcg@10(top-2048)=0.017261
+[epoch 3 timing] total=74.93s | train: total=26.30s (data=0.40s, move=0.21s, compute=25.50s) | val-loss: total=1.53s (data=0.26s, move=0.00s, compute=1.20s) | val-eval: total=47.09s (data=0.26s, move=0.00s, beam=46.66s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.017261, eval_samples=2048)
+[train] epoch=4 step=100/242 loss=3.491706
+[train] epoch=4 step=200/242 loss=3.445621
+[epoch 4] train_loss=3.430102 val_loss(full)=3.597792 val_eval=skipped (eval_every_n=3)
+[epoch 4 timing] total=29.53s | train: total=27.64s (data=0.39s, move=0.26s, compute=26.79s) | val-loss: total=1.89s (data=0.27s, move=0.01s, compute=1.55s)
+[train] epoch=5 step=100/242 loss=3.279130
+[train] epoch=5 step=200/242 loss=3.244957
+[epoch 5] train_loss=3.230545 val_loss(full)=3.463189 val_eval=skipped (eval_every_n=3)
+[epoch 5 timing] total=29.79s | train: total=27.93s (data=0.39s, move=0.23s, compute=27.11s) | val-loss: total=1.86s (data=0.27s, move=0.01s, compute=1.52s)
+[train] epoch=6 step=100/242 loss=3.107263
+[train] epoch=6 step=200/242 loss=3.083277
+[epoch 6] train_loss=3.074840 val_loss(full)=3.359093 val_recall@10(top-2048)=0.050293 val_ndcg@10(top-2048)=0.029084
+[epoch 6 timing] total=74.47s | train: total=27.90s (data=0.37s, move=0.21s, compute=27.11s) | val-loss: total=2.02s (data=0.27s, move=0.01s, compute=1.68s) | val-eval: total=44.54s (data=0.25s, move=0.00s, beam=44.13s, rank=0.07s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.029084, eval_samples=2048)
+[train] epoch=7 step=100/242 loss=2.989053
+[train] epoch=7 step=200/242 loss=2.960536
+[epoch 7] train_loss=2.953419 val_loss(full)=3.267230 val_eval=skipped (eval_every_n=3)
+[epoch 7 timing] total=29.31s | train: total=27.18s (data=0.38s, move=0.22s, compute=26.38s) | val-loss: total=2.14s (data=0.27s, move=0.01s, compute=1.79s)
+[train] epoch=8 step=100/242 loss=2.861392
+[train] epoch=8 step=200/242 loss=2.860147
+[epoch 8] train_loss=2.853376 val_loss(full)=3.189847 val_eval=skipped (eval_every_n=3)
+[epoch 8 timing] total=29.81s | train: total=27.42s (data=0.39s, move=0.22s, compute=26.61s) | val-loss: total=2.39s (data=0.27s, move=0.01s, compute=2.05s)
+[train] epoch=9 step=100/242 loss=2.790329
+[train] epoch=9 step=200/242 loss=2.774077
+[epoch 9] train_loss=2.767950 val_loss(full)=3.126452 val_recall@10(top-2048)=0.063477 val_ndcg@10(top-2048)=0.036969
+[epoch 9 timing] total=71.74s | train: total=27.74s (data=0.38s, move=0.18s, compute=26.99s) | val-loss: total=2.38s (data=0.26s, move=0.01s, compute=2.05s) | val-eval: total=41.60s (data=0.26s, move=0.00s, beam=41.17s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.036969, eval_samples=2048)
+[train] epoch=10 step=100/242 loss=2.720002
+[train] epoch=10 step=200/242 loss=2.708593
+[epoch 10] train_loss=2.703391 val_loss(full)=3.069768 val_eval=skipped (eval_every_n=3)
+[epoch 10 timing] total=22.90s | train: total=20.44s (data=0.37s, move=0.13s, compute=19.75s) | val-loss: total=2.46s (data=0.27s, move=0.00s, compute=2.12s)
+[train] epoch=11 step=100/242 loss=2.656551
+[train] epoch=11 step=200/242 loss=2.645698
+[epoch 11] train_loss=2.640095 val_loss(full)=3.023608 val_eval=skipped (eval_every_n=3)
+[epoch 11 timing] total=30.11s | train: total=27.62s (data=0.38s, move=0.24s, compute=26.79s) | val-loss: total=2.49s (data=0.27s, move=0.01s, compute=2.15s)
+[train] epoch=12 step=100/242 loss=2.595359
+[train] epoch=12 step=200/242 loss=2.587550
+[epoch 12] train_loss=2.583992 val_loss(full)=2.984151 val_recall@10(top-2048)=0.074219 val_ndcg@10(top-2048)=0.043609
+[epoch 12 timing] total=75.78s | train: total=27.67s (data=0.39s, move=0.24s, compute=26.85s) | val-loss: total=2.41s (data=0.27s, move=0.00s, compute=2.06s) | val-eval: total=45.69s (data=0.26s, move=0.00s, beam=45.27s, rank=0.07s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.043609, eval_samples=2048)
+[train] epoch=13 step=100/242 loss=2.555489
+[train] epoch=13 step=200/242 loss=2.547201
+[epoch 13] train_loss=2.542042 val_loss(full)=2.950909 val_eval=skipped (eval_every_n=3)
+[epoch 13 timing] total=19.03s | train: total=17.41s (data=0.37s, move=0.06s, compute=16.80s) | val-loss: total=1.62s (data=0.26s, move=0.00s, compute=1.30s)
+[train] epoch=14 step=100/242 loss=2.501438
+[train] epoch=14 step=200/242 loss=2.495316
+[epoch 14] train_loss=2.495764 val_loss(full)=2.909837 val_eval=skipped (eval_every_n=3)
+[epoch 14 timing] total=29.26s | train: total=27.13s (data=0.40s, move=0.22s, compute=26.32s) | val-loss: total=2.13s (data=0.29s, move=0.01s, compute=1.78s)
+[train] epoch=15 step=100/242 loss=2.463813
+[train] epoch=15 step=200/242 loss=2.460720
+[epoch 15] train_loss=2.459065 val_loss(full)=2.880963 val_recall@10(top-2048)=0.076172 val_ndcg@10(top-2048)=0.047096
+[epoch 15 timing] total=79.37s | train: total=27.59s (data=0.40s, move=0.21s, compute=26.78s) | val-loss: total=2.13s (data=0.28s, move=0.00s, compute=1.78s) | val-eval: total=49.64s (data=0.26s, move=0.00s, beam=49.20s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.047096, eval_samples=2048)
+[train] epoch=16 step=100/242 loss=2.421577
+[train] epoch=16 step=200/242 loss=2.427759
+[epoch 16] train_loss=2.425704 val_loss(full)=2.853950 val_eval=skipped (eval_every_n=3)
+[epoch 16 timing] total=19.27s | train: total=17.48s (data=0.38s, move=0.06s, compute=16.86s) | val-loss: total=1.78s (data=0.37s, move=0.01s, compute=1.34s)
+[train] epoch=17 step=100/242 loss=2.394209
+[train] epoch=17 step=200/242 loss=2.395511
+[epoch 17] train_loss=2.393591 val_loss(full)=2.828625 val_eval=skipped (eval_every_n=3)
+[epoch 17 timing] total=26.03s | train: total=23.61s (data=0.38s, move=0.14s, compute=22.90s) | val-loss: total=2.41s (data=0.26s, move=0.00s, compute=2.08s)
+[train] epoch=18 step=100/242 loss=2.370188
+[train] epoch=18 step=200/242 loss=2.369389
+[epoch 18] train_loss=2.366130 val_loss(full)=2.806650 val_recall@10(top-2048)=0.089355 val_ndcg@10(top-2048)=0.054059
+[epoch 18 timing] total=81.34s | train: total=27.50s (data=0.38s, move=0.26s, compute=26.66s) | val-loss: total=2.45s (data=0.26s, move=0.01s, compute=2.11s) | val-eval: total=51.39s (data=0.24s, move=0.00s, beam=50.98s, rank=0.07s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.054059, eval_samples=2048)
+[train] epoch=19 step=100/242 loss=2.343862
+[train] epoch=19 step=200/242 loss=2.338600
+[epoch 19] train_loss=2.338524 val_loss(full)=2.785475 val_eval=skipped (eval_every_n=3)
+[epoch 19 timing] total=18.76s | train: total=17.24s (data=0.36s, move=0.06s, compute=16.65s) | val-loss: total=1.52s (data=0.28s, move=0.00s, compute=1.18s)
+[train] epoch=20 step=100/242 loss=2.318270
+[train] epoch=20 step=200/242 loss=2.314598
+[epoch 20] train_loss=2.312841 val_loss(full)=2.762718 val_eval=skipped (eval_every_n=3)
+[epoch 20 timing] total=20.10s | train: total=17.67s (data=0.37s, move=0.06s, compute=17.06s) | val-loss: total=2.42s (data=0.26s, move=0.01s, compute=2.09s)
+[train] epoch=21 step=100/242 loss=2.288016
+[train] epoch=21 step=200/242 loss=2.287823
+[epoch 21] train_loss=2.289107 val_loss(full)=2.742352 val_recall@10(top-2048)=0.104004 val_ndcg@10(top-2048)=0.064148
+[epoch 21 timing] total=88.16s | train: total=27.58s (data=0.39s, move=0.21s, compute=26.78s) | val-loss: total=2.48s (data=0.28s, move=0.00s, compute=2.12s) | val-eval: total=58.10s (data=0.27s, move=0.00s, beam=57.66s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.064148, eval_samples=2048)
+[train] epoch=22 step=100/242 loss=2.255132
+[train] epoch=22 step=200/242 loss=2.265821
+[epoch 22] train_loss=2.268315 val_loss(full)=2.724720 val_eval=skipped (eval_every_n=3)
+[epoch 22 timing] total=19.01s | train: total=17.37s (data=0.38s, move=0.06s, compute=16.75s) | val-loss: total=1.64s (data=0.29s, move=0.00s, compute=1.28s)
+[train] epoch=23 step=100/242 loss=2.247247
+[train] epoch=23 step=200/242 loss=2.248444
+[epoch 23] train_loss=2.248220 val_loss(full)=2.709881 val_eval=skipped (eval_every_n=3)
+[epoch 23 timing] total=19.23s | train: total=17.60s (data=0.37s, move=0.06s, compute=16.99s) | val-loss: total=1.63s (data=0.26s, move=0.00s, compute=1.31s)
+[train] epoch=24 step=100/242 loss=2.225911
+[train] epoch=24 step=200/242 loss=2.228730
+[epoch 24] train_loss=2.228843 val_loss(full)=2.692061 val_recall@10(top-2048)=0.104980 val_ndcg@10(top-2048)=0.064220
+[epoch 24 timing] total=90.94s | train: total=27.32s (data=0.38s, move=0.25s, compute=26.49s) | val-loss: total=2.19s (data=0.27s, move=0.00s, compute=1.85s) | val-eval: total=61.43s (data=0.26s, move=0.00s, beam=60.99s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.064220, eval_samples=2048)
+[train] epoch=25 step=100/242 loss=2.208335
+[train] epoch=25 step=200/242 loss=2.208855
+[epoch 25] train_loss=2.211871 val_loss(full)=2.676062 val_eval=skipped (eval_every_n=3)
+[epoch 25 timing] total=18.70s | train: total=17.09s (data=0.37s, move=0.06s, compute=16.49s) | val-loss: total=1.61s (data=0.26s, move=0.00s, compute=1.28s)
+[train] epoch=26 step=100/242 loss=2.187676
+[train] epoch=26 step=200/242 loss=2.193581
+[epoch 26] train_loss=2.195011 val_loss(full)=2.653984 val_eval=skipped (eval_every_n=3)
+[epoch 26 timing] total=19.14s | train: total=17.50s (data=0.37s, move=0.06s, compute=16.90s) | val-loss: total=1.64s (data=0.27s, move=0.00s, compute=1.30s)
+[train] epoch=27 step=100/242 loss=2.178780
+[train] epoch=27 step=200/242 loss=2.176029
+[epoch 27] train_loss=2.175651 val_loss(full)=2.642559 val_recall@10(top-2048)=0.124512 val_ndcg@10(top-2048)=0.075141
+[epoch 27 timing] total=90.37s | train: total=27.15s (data=0.39s, move=0.21s, compute=26.36s) | val-loss: total=2.13s (data=0.28s, move=0.01s, compute=1.78s) | val-eval: total=61.08s (data=0.27s, move=0.00s, beam=60.63s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.075141, eval_samples=2048)
+[train] epoch=28 step=100/242 loss=2.165257
+[train] epoch=28 step=200/242 loss=2.163842
+[epoch 28] train_loss=2.164077 val_loss(full)=2.637718 val_eval=skipped (eval_every_n=3)
+[epoch 28 timing] total=18.97s | train: total=17.35s (data=0.37s, move=0.06s, compute=16.74s) | val-loss: total=1.62s (data=0.27s, move=0.00s, compute=1.27s)
+[train] epoch=29 step=100/242 loss=2.144707
+[train] epoch=29 step=200/242 loss=2.144465
+[epoch 29] train_loss=2.145819 val_loss(full)=2.619506 val_eval=skipped (eval_every_n=3)
+[epoch 29 timing] total=19.34s | train: total=17.68s (data=0.38s, move=0.06s, compute=17.06s) | val-loss: total=1.66s (data=0.29s, move=0.00s, compute=1.30s)
+[train] epoch=30 step=100/242 loss=2.120241
+[train] epoch=30 step=200/242 loss=2.128438
+[epoch 30] train_loss=2.127906 val_loss(full)=2.608776 val_recall@10(top-2048)=0.129883 val_ndcg@10(top-2048)=0.080444
+[epoch 30 timing] total=90.92s | train: total=26.97s (data=0.38s, move=0.23s, compute=26.17s) | val-loss: total=2.43s (data=0.27s, move=0.00s, compute=2.09s) | val-eval: total=61.50s (data=0.26s, move=0.00s, beam=61.08s, rank=0.07s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.080444, eval_samples=2048)
+[train] epoch=31 step=100/242 loss=2.119580
+[train] epoch=31 step=200/242 loss=2.113962
+[epoch 31] train_loss=2.114133 val_loss(full)=2.596122 val_eval=skipped (eval_every_n=3)
+[epoch 31 timing] total=18.68s | train: total=17.05s (data=0.37s, move=0.06s, compute=16.44s) | val-loss: total=1.63s (data=0.28s, move=0.00s, compute=1.28s)
+[train] epoch=32 step=100/242 loss=2.085755
+[train] epoch=32 step=200/242 loss=2.099713
+[epoch 32] train_loss=2.101016 val_loss(full)=2.586353 val_eval=skipped (eval_every_n=3)
+[epoch 32 timing] total=19.07s | train: total=17.42s (data=0.37s, move=0.06s, compute=16.81s) | val-loss: total=1.65s (data=0.27s, move=0.00s, compute=1.31s)
+[train] epoch=33 step=100/242 loss=2.091311
+[train] epoch=33 step=200/242 loss=2.090127
+[epoch 33] train_loss=2.087283 val_loss(full)=2.579528 val_recall@10(top-2048)=0.143066 val_ndcg@10(top-2048)=0.085538
+[epoch 33 timing] total=91.07s | train: total=26.86s (data=0.38s, move=0.22s, compute=26.05s) | val-loss: total=2.22s (data=0.27s, move=0.00s, compute=1.89s) | val-eval: total=61.98s (data=0.27s, move=0.00s, beam=61.54s, rank=0.07s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.085538, eval_samples=2048)
+[train] epoch=34 step=100/242 loss=2.075796
+[train] epoch=34 step=200/242 loss=2.075378
+[epoch 34] train_loss=2.075738 val_loss(full)=2.560322 val_eval=skipped (eval_every_n=3)
+[epoch 34 timing] total=18.19s | train: total=16.58s (data=0.36s, move=0.05s, compute=16.00s) | val-loss: total=1.61s (data=0.27s, move=0.00s, compute=1.26s)
+[train] epoch=35 step=100/242 loss=2.058976
+[train] epoch=35 step=200/242 loss=2.059721
+[epoch 35] train_loss=2.060857 val_loss(full)=2.556015 val_eval=skipped (eval_every_n=3)
+[epoch 35 timing] total=18.39s | train: total=16.77s (data=0.35s, move=0.06s, compute=16.20s) | val-loss: total=1.62s (data=0.26s, move=0.00s, compute=1.30s)
+[train] epoch=36 step=100/242 loss=2.036579
+[train] epoch=36 step=200/242 loss=2.048747
+[epoch 36] train_loss=2.048963 val_loss(full)=2.547913 val_recall@10(top-2048)=0.142578 val_ndcg@10(top-2048)=0.088561
+[epoch 36 timing] total=88.60s | train: total=26.50s (data=0.38s, move=0.22s, compute=25.72s) | val-loss: total=2.43s (data=0.28s, move=0.01s, compute=2.09s) | val-eval: total=59.67s (data=0.24s, move=0.00s, beam=59.27s, rank=0.07s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.088561, eval_samples=2048)
+[train] epoch=37 step=100/242 loss=2.036629
+[train] epoch=37 step=200/242 loss=2.040418
+[epoch 37] train_loss=2.042127 val_loss(full)=2.539049 val_eval=skipped (eval_every_n=3)
+[epoch 37 timing] total=18.25s | train: total=16.64s (data=0.35s, move=0.06s, compute=16.06s) | val-loss: total=1.61s (data=0.27s, move=0.00s, compute=1.28s)
+[train] epoch=38 step=100/242 loss=2.031385
+[train] epoch=38 step=200/242 loss=2.026896
+[epoch 38] train_loss=2.025921 val_loss(full)=2.526458 val_eval=skipped (eval_every_n=3)
+[epoch 38 timing] total=18.34s | train: total=16.70s (data=0.35s, move=0.06s, compute=16.12s) | val-loss: total=1.64s (data=0.27s, move=0.00s, compute=1.30s)
+[train] epoch=39 step=100/242 loss=2.002676
+[train] epoch=39 step=200/242 loss=2.013500
+[epoch 39] train_loss=2.017146 val_loss(full)=2.519905 val_recall@10(top-2048)=0.157227 val_ndcg@10(top-2048)=0.095890
+[epoch 39 timing] total=88.55s | train: total=26.11s (data=0.37s, move=0.21s, compute=25.33s) | val-loss: total=2.44s (data=0.28s, move=0.00s, compute=2.10s) | val-eval: total=60.00s (data=0.25s, move=0.00s, beam=59.58s, rank=0.07s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.095890, eval_samples=2048)
+[train] epoch=40 step=100/242 loss=2.009486
+[train] epoch=40 step=200/242 loss=2.006250
+[epoch 40] train_loss=2.006461 val_loss(full)=2.508380 val_eval=skipped (eval_every_n=3)
+[epoch 40 timing] total=17.46s | train: total=15.89s (data=0.33s, move=0.05s, compute=15.35s) | val-loss: total=1.57s (data=0.24s, move=0.00s, compute=1.27s)
+[train] epoch=41 step=100/242 loss=1.996700
+[train] epoch=41 step=200/242 loss=1.997206
+[epoch 41] train_loss=1.996756 val_loss(full)=2.505004 val_eval=skipped (eval_every_n=3)
+[epoch 41 timing] total=17.50s | train: total=15.91s (data=0.32s, move=0.05s, compute=15.39s) | val-loss: total=1.59s (data=0.24s, move=0.00s, compute=1.29s)
+[train] epoch=42 step=100/242 loss=1.977578
+[train] epoch=42 step=200/242 loss=1.981962
+[epoch 42] train_loss=1.985421 val_loss(full)=2.494648 val_recall@10(top-2048)=0.164551 val_ndcg@10(top-2048)=0.099309
+[epoch 42 timing] total=84.25s | train: total=20.43s (data=0.31s, move=0.18s, compute=19.81s) | val-loss: total=2.42s (data=0.23s, move=0.00s, compute=2.13s) | val-eval: total=61.39s (data=0.26s, move=0.00s, beam=60.99s, rank=0.06s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.099309, eval_samples=2048)
+[train] epoch=43 step=100/242 loss=1.965619
+[train] epoch=43 step=200/242 loss=1.970575
+[epoch 43] train_loss=1.973460 val_loss(full)=2.485628 val_eval=skipped (eval_every_n=3)
+[epoch 43 timing] total=16.62s | train: total=15.05s (data=0.29s, move=0.05s, compute=14.59s) | val-loss: total=1.56s (data=0.24s, move=0.00s, compute=1.27s)
+[train] epoch=44 step=100/242 loss=1.958172
+[train] epoch=44 step=200/242 loss=1.963708
+[epoch 44] train_loss=1.965011 val_loss(full)=2.478117 val_eval=skipped (eval_every_n=3)
+[epoch 44 timing] total=16.72s | train: total=15.08s (data=0.32s, move=0.05s, compute=14.60s) | val-loss: total=1.64s (data=0.24s, move=0.00s, compute=1.35s)
+[train] epoch=45 step=100/242 loss=1.951103
+[train] epoch=45 step=200/242 loss=1.954013
+[epoch 45] train_loss=1.955334 val_loss(full)=2.477076 val_recall@10(top-2048)=0.172852 val_ndcg@10(top-2048)=0.105733
+[epoch 45 timing] total=83.88s | train: total=20.71s (data=0.29s, move=0.17s, compute=20.12s) | val-loss: total=2.40s (data=0.23s, move=0.00s, compute=2.12s) | val-eval: total=60.76s (data=0.21s, move=0.00s, beam=60.42s, rank=0.06s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.105733, eval_samples=2048)
+[train] epoch=46 step=100/242 loss=1.942761
+[train] epoch=46 step=200/242 loss=1.944913
+[epoch 46] train_loss=1.946198 val_loss(full)=2.473365 val_eval=skipped (eval_every_n=3)
+[epoch 46 timing] total=16.59s | train: total=15.04s (data=0.29s, move=0.05s, compute=14.58s) | val-loss: total=1.54s (data=0.22s, move=0.00s, compute=1.27s)
+[train] epoch=47 step=100/242 loss=1.934119
+[train] epoch=47 step=200/242 loss=1.937700
+[epoch 47] train_loss=1.938440 val_loss(full)=2.460260 val_eval=skipped (eval_every_n=3)
+[epoch 47 timing] total=16.64s | train: total=15.08s (data=0.28s, move=0.04s, compute=14.63s) | val-loss: total=1.55s (data=0.23s, move=0.00s, compute=1.27s)
+[train] epoch=48 step=100/242 loss=1.925546
+[train] epoch=48 step=200/242 loss=1.927495
+[epoch 48] train_loss=1.928821 val_loss(full)=2.454410 val_recall@10(top-2048)=0.170410 val_ndcg@10(top-2048)=0.105907
+[epoch 48 timing] total=83.23s | train: total=15.54s (data=0.29s, move=0.05s, compute=15.09s) | val-loss: total=1.74s (data=0.25s, move=0.00s, compute=1.44s) | val-eval: total=65.94s (data=0.24s, move=0.00s, beam=65.57s, rank=0.06s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.105907, eval_samples=2048)
+[train] epoch=49 step=100/242 loss=1.921341
+[train] epoch=49 step=200/242 loss=1.920234
+[epoch 49] train_loss=1.922660 val_loss(full)=2.453531 val_eval=skipped (eval_every_n=3)
+[epoch 49 timing] total=16.50s | train: total=14.94s (data=0.29s, move=0.05s, compute=14.48s) | val-loss: total=1.56s (data=0.24s, move=0.00s, compute=1.26s)
+[train] epoch=50 step=100/242 loss=1.898587
+[train] epoch=50 step=200/242 loss=1.911116
+[epoch 50] train_loss=1.910283 val_loss(full)=2.445830 val_eval=skipped (eval_every_n=3)
+[epoch 50 timing] total=16.87s | train: total=15.28s (data=0.31s, move=0.05s, compute=14.78s) | val-loss: total=1.59s (data=0.25s, move=0.00s, compute=1.29s)
+[train] epoch=51 step=100/242 loss=1.904016
+[train] epoch=51 step=200/242 loss=1.901138
+[epoch 51] train_loss=1.900944 val_loss(full)=2.435089 val_recall@10(top-2048)=0.187988 val_ndcg@10(top-2048)=0.110855
+[epoch 51 timing] total=82.31s | train: total=15.71s (data=0.30s, move=0.05s, compute=15.22s) | val-loss: total=1.95s (data=0.23s, move=0.00s, compute=1.66s) | val-eval: total=64.65s (data=0.26s, move=0.00s, beam=64.22s, rank=0.07s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.110855, eval_samples=2048)
+[train] epoch=52 step=100/242 loss=1.893970
+[train] epoch=52 step=200/242 loss=1.888864
+[epoch 52] train_loss=1.893550 val_loss(full)=2.435087 val_eval=skipped (eval_every_n=3)
+[epoch 52 timing] total=18.93s | train: total=17.34s (data=0.38s, move=0.06s, compute=16.73s) | val-loss: total=1.59s (data=0.28s, move=0.01s, compute=1.24s)
+[train] epoch=53 step=100/242 loss=1.877719
+[train] epoch=53 step=200/242 loss=1.884992
+[epoch 53] train_loss=1.886733 val_loss(full)=2.427384 val_eval=skipped (eval_every_n=3)
+[epoch 53 timing] total=18.84s | train: total=17.23s (data=0.37s, move=0.06s, compute=16.63s) | val-loss: total=1.60s (data=0.26s, move=0.00s, compute=1.27s)
+[train] epoch=54 step=100/242 loss=1.867698
+[train] epoch=54 step=200/242 loss=1.874189
+[epoch 54] train_loss=1.879426 val_loss(full)=2.426671 val_recall@10(top-2048)=0.187988 val_ndcg@10(top-2048)=0.112383
+[epoch 54 timing] total=86.18s | train: total=17.19s (data=0.37s, move=0.06s, compute=16.58s) | val-loss: total=1.65s (data=0.27s, move=0.00s, compute=1.31s) | val-eval: total=67.34s (data=0.25s, move=0.00s, beam=66.92s, rank=0.07s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.112383, eval_samples=2048)
+[train] epoch=55 step=100/242 loss=1.866019
+[train] epoch=55 step=200/242 loss=1.866681
+[epoch 55] train_loss=1.869104 val_loss(full)=2.420259 val_eval=skipped (eval_every_n=3)
+[epoch 55 timing] total=18.95s | train: total=17.24s (data=0.37s, move=0.06s, compute=16.64s) | val-loss: total=1.70s (data=0.28s, move=0.00s, compute=1.36s)
+[train] epoch=56 step=100/242 loss=1.859247
+[train] epoch=56 step=200/242 loss=1.860350
+[epoch 56] train_loss=1.861810 val_loss(full)=2.411329 val_eval=skipped (eval_every_n=3)
+[epoch 56 timing] total=19.05s | train: total=17.40s (data=0.38s, move=0.06s, compute=16.79s) | val-loss: total=1.65s (data=0.29s, move=0.00s, compute=1.28s)
+[train] epoch=57 step=100/242 loss=1.853423
+[train] epoch=57 step=200/242 loss=1.853163
+[epoch 57] train_loss=1.856686 val_loss(full)=2.415888 val_recall@10(top-2048)=0.194336 val_ndcg@10(top-2048)=0.116095
+[epoch 57 timing] total=87.14s | train: total=17.21s (data=0.38s, move=0.06s, compute=16.59s) | val-loss: total=1.64s (data=0.28s, move=0.00s, compute=1.28s) | val-eval: total=68.30s (data=0.26s, move=0.00s, beam=67.84s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.116095, eval_samples=2048)
+[train] epoch=58 step=100/242 loss=1.840788
+[train] epoch=58 step=200/242 loss=1.845561
+[epoch 58] train_loss=1.846455 val_loss(full)=2.399618 val_eval=skipped (eval_every_n=3)
+[epoch 58 timing] total=19.02s | train: total=17.38s (data=0.38s, move=0.06s, compute=16.76s) | val-loss: total=1.64s (data=0.26s, move=0.00s, compute=1.30s)
+[train] epoch=59 step=100/242 loss=1.832694
+[train] epoch=59 step=200/242 loss=1.837972
+[epoch 59] train_loss=1.840914 val_loss(full)=2.396781 val_eval=skipped (eval_every_n=3)
+[epoch 59 timing] total=18.87s | train: total=17.25s (data=0.37s, move=0.06s, compute=16.64s) | val-loss: total=1.62s (data=0.27s, move=0.00s, compute=1.28s)
+[train] epoch=60 step=100/242 loss=1.834359
+[train] epoch=60 step=200/242 loss=1.830348
+[epoch 60] train_loss=1.831638 val_loss(full)=2.397929 val_recall@10(top-2048)=0.204590 val_ndcg@10(top-2048)=0.120881
+[epoch 60 timing] total=86.06s | train: total=17.25s (data=0.37s, move=0.06s, compute=16.65s) | val-loss: total=1.63s (data=0.26s, move=0.00s, compute=1.30s) | val-eval: total=67.18s (data=0.26s, move=0.00s, beam=66.74s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.120881, eval_samples=2048)
+[train] epoch=61 step=100/242 loss=1.821671
+[train] epoch=61 step=200/242 loss=1.826519
+[epoch 61] train_loss=1.826751 val_loss(full)=2.401378 val_eval=skipped (eval_every_n=3)
+[epoch 61 timing] total=19.19s | train: total=17.50s (data=0.38s, move=0.06s, compute=16.89s) | val-loss: total=1.68s (data=0.26s, move=0.01s, compute=1.35s)
+[train] epoch=62 step=100/242 loss=1.809115
+[train] epoch=62 step=200/242 loss=1.817089
+[epoch 62] train_loss=1.817538 val_loss(full)=2.395490 val_eval=skipped (eval_every_n=3)
+[epoch 62 timing] total=18.93s | train: total=17.28s (data=0.39s, move=0.06s, compute=16.65s) | val-loss: total=1.65s (data=0.30s, move=0.00s, compute=1.28s)
+[train] epoch=63 step=100/242 loss=1.810207
+[train] epoch=63 step=200/242 loss=1.812800
+[epoch 63] train_loss=1.815075 val_loss(full)=2.401590 val_recall@10(top-2048)=0.202148 val_ndcg@10(top-2048)=0.120639
+[epoch 63 timing] total=86.81s | train: total=17.53s (data=0.39s, move=0.06s, compute=16.90s) | val-loss: total=1.78s (data=0.35s, move=0.00s, compute=1.36s) | val-eval: total=67.49s (data=0.27s, move=0.00s, beam=67.02s, rank=0.10s)
+No improvement in val_ndcg@10 for 1 evaluation(s). Best so far: 0.120881 at epoch 60
+[train] epoch=64 step=100/242 loss=1.802930
+[train] epoch=64 step=200/242 loss=1.806414
+[epoch 64] train_loss=1.806397 val_loss(full)=2.384198 val_eval=skipped (eval_every_n=3)
+[epoch 64 timing] total=18.75s | train: total=17.13s (data=0.38s, move=0.06s, compute=16.52s) | val-loss: total=1.62s (data=0.27s, move=0.00s, compute=1.28s)
+[train] epoch=65 step=100/242 loss=1.787775
+[train] epoch=65 step=200/242 loss=1.797008
+[epoch 65] train_loss=1.798185 val_loss(full)=2.390793 val_eval=skipped (eval_every_n=3)
+[epoch 65 timing] total=19.19s | train: total=17.51s (data=0.37s, move=0.06s, compute=16.89s) | val-loss: total=1.68s (data=0.28s, move=0.00s, compute=1.34s)
+[train] epoch=66 step=100/242 loss=1.793714
+[train] epoch=66 step=200/242 loss=1.794361
+[epoch 66] train_loss=1.793975 val_loss(full)=2.387057 val_recall@10(top-2048)=0.207520 val_ndcg@10(top-2048)=0.124798
+[epoch 66 timing] total=88.02s | train: total=17.27s (data=0.37s, move=0.06s, compute=16.65s) | val-loss: total=1.62s (data=0.28s, move=0.00s, compute=1.27s) | val-eval: total=69.13s (data=0.26s, move=0.00s, beam=68.69s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.124798, eval_samples=2048)
+[train] epoch=67 step=100/242 loss=1.780797
+[train] epoch=67 step=200/242 loss=1.784051
+[epoch 67] train_loss=1.785182 val_loss(full)=2.375799 val_eval=skipped (eval_every_n=3)
+[epoch 67 timing] total=18.87s | train: total=17.32s (data=0.39s, move=0.06s, compute=16.70s) | val-loss: total=1.55s (data=0.28s, move=0.00s, compute=1.19s)
+[train] epoch=68 step=100/242 loss=1.765413
+[train] epoch=68 step=200/242 loss=1.775045
+[epoch 68] train_loss=1.777583 val_loss(full)=2.377906 val_eval=skipped (eval_every_n=3)
+[epoch 68 timing] total=19.17s | train: total=17.54s (data=0.39s, move=0.06s, compute=16.92s) | val-loss: total=1.63s (data=0.27s, move=0.00s, compute=1.29s)
+[train] epoch=69 step=100/242 loss=1.763739
+[train] epoch=69 step=200/242 loss=1.770952
+[epoch 69] train_loss=1.772777 val_loss(full)=2.384302 val_recall@10(top-2048)=0.210938 val_ndcg@10(top-2048)=0.126345
+[epoch 69 timing] total=88.98s | train: total=17.24s (data=0.39s, move=0.06s, compute=16.61s) | val-loss: total=1.61s (data=0.26s, move=0.00s, compute=1.28s) | val-eval: total=70.12s (data=0.25s, move=0.00s, beam=69.69s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.126345, eval_samples=2048)
+[train] epoch=70 step=100/242 loss=1.760217
+[train] epoch=70 step=200/242 loss=1.762870
+[epoch 70] train_loss=1.765679 val_loss(full)=2.378235 val_eval=skipped (eval_every_n=3)
+[epoch 70 timing] total=18.86s | train: total=17.24s (data=0.37s, move=0.06s, compute=16.63s) | val-loss: total=1.62s (data=0.27s, move=0.00s, compute=1.28s)
+[train] epoch=71 step=100/242 loss=1.750108
+[train] epoch=71 step=200/242 loss=1.757533
+[epoch 71] train_loss=1.760887 val_loss(full)=2.365545 val_eval=skipped (eval_every_n=3)
+[epoch 71 timing] total=19.22s | train: total=17.52s (data=0.37s, move=0.06s, compute=16.92s) | val-loss: total=1.70s (data=0.29s, move=0.01s, compute=1.34s)
+[train] epoch=72 step=100/242 loss=1.755036
+[train] epoch=72 step=200/242 loss=1.754874
+[epoch 72] train_loss=1.754976 val_loss(full)=2.377303 val_recall@10(top-2048)=0.220703 val_ndcg@10(top-2048)=0.130300
+[epoch 72 timing] total=88.30s | train: total=17.22s (data=0.39s, move=0.06s, compute=16.60s) | val-loss: total=1.62s (data=0.27s, move=0.00s, compute=1.28s) | val-eval: total=69.45s (data=0.27s, move=0.00s, beam=69.00s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.130300, eval_samples=2048)
+[train] epoch=73 step=100/242 loss=1.743447
+[train] epoch=73 step=200/242 loss=1.751774
+[epoch 73] train_loss=1.751463 val_loss(full)=2.374865 val_eval=skipped (eval_every_n=3)
+[epoch 73 timing] total=18.79s | train: total=17.17s (data=0.38s, move=0.06s, compute=16.57s) | val-loss: total=1.62s (data=0.27s, move=0.00s, compute=1.27s)
+[train] epoch=74 step=100/242 loss=1.735453
+[train] epoch=74 step=200/242 loss=1.744356
+[epoch 74] train_loss=1.743912 val_loss(full)=2.376292 val_eval=skipped (eval_every_n=3)
+[epoch 74 timing] total=19.45s | train: total=17.80s (data=0.40s, move=0.06s, compute=17.16s) | val-loss: total=1.65s (data=0.28s, move=0.01s, compute=1.29s)
+[train] epoch=75 step=100/242 loss=1.730900
+[train] epoch=75 step=200/242 loss=1.735349
+[epoch 75] train_loss=1.738217 val_loss(full)=2.373423 val_recall@10(top-2048)=0.221191 val_ndcg@10(top-2048)=0.130768
+[epoch 75 timing] total=88.99s | train: total=17.29s (data=0.38s, move=0.06s, compute=16.67s) | val-loss: total=1.63s (data=0.28s, move=0.01s, compute=1.27s) | val-eval: total=70.07s (data=0.27s, move=0.00s, beam=69.63s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.130768, eval_samples=2048)
+[train] epoch=76 step=100/242 loss=1.726074
+[train] epoch=76 step=200/242 loss=1.731631
+[epoch 76] train_loss=1.734241 val_loss(full)=2.363413 val_eval=skipped (eval_every_n=3)
+[epoch 76 timing] total=18.64s | train: total=17.09s (data=0.38s, move=0.06s, compute=16.48s) | val-loss: total=1.55s (data=0.26s, move=0.00s, compute=1.22s)
+[train] epoch=77 step=100/242 loss=1.717739
+[train] epoch=77 step=200/242 loss=1.725367
+[epoch 77] train_loss=1.727461 val_loss(full)=2.369644 val_eval=skipped (eval_every_n=3)
+[epoch 77 timing] total=19.22s | train: total=17.68s (data=0.39s, move=0.06s, compute=17.06s) | val-loss: total=1.54s (data=0.27s, move=0.00s, compute=1.21s)
+[train] epoch=78 step=100/242 loss=1.720072
+[train] epoch=78 step=200/242 loss=1.722037
+[epoch 78] train_loss=1.722763 val_loss(full)=2.371281 val_recall@10(top-2048)=0.233398 val_ndcg@10(top-2048)=0.135333
+[epoch 78 timing] total=87.76s | train: total=17.17s (data=0.37s, move=0.06s, compute=16.57s) | val-loss: total=1.62s (data=0.28s, move=0.00s, compute=1.28s) | val-eval: total=68.97s (data=0.25s, move=0.00s, beam=68.54s, rank=0.07s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.135333, eval_samples=2048)
+[train] epoch=79 step=100/242 loss=1.711706
+[train] epoch=79 step=200/242 loss=1.714143
+[epoch 79] train_loss=1.714540 val_loss(full)=2.362615 val_eval=skipped (eval_every_n=3)
+[epoch 79 timing] total=19.00s | train: total=17.45s (data=0.38s, move=0.06s, compute=16.83s) | val-loss: total=1.54s (data=0.28s, move=0.00s, compute=1.20s)
+[train] epoch=80 step=100/242 loss=1.709892
+[train] epoch=80 step=200/242 loss=1.707966
+[epoch 80] train_loss=1.710180 val_loss(full)=2.373099 val_eval=skipped (eval_every_n=3)
+[epoch 80 timing] total=19.11s | train: total=17.60s (data=0.37s, move=0.06s, compute=17.00s) | val-loss: total=1.51s (data=0.27s, move=0.00s, compute=1.17s)
+[train] epoch=81 step=100/242 loss=1.694517
+[train] epoch=81 step=200/242 loss=1.703104
+[epoch 81] train_loss=1.704450 val_loss(full)=2.356015 val_recall@10(top-2048)=0.237305 val_ndcg@10(top-2048)=0.141325
+[epoch 81 timing] total=88.00s | train: total=17.22s (data=0.37s, move=0.06s, compute=16.61s) | val-loss: total=1.61s (data=0.26s, move=0.00s, compute=1.28s) | val-eval: total=69.17s (data=0.25s, move=0.00s, beam=68.75s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.141325, eval_samples=2048)
+[train] epoch=82 step=100/242 loss=1.697581
+[train] epoch=82 step=200/242 loss=1.700223
+[epoch 82] train_loss=1.702192 val_loss(full)=2.364036 val_eval=skipped (eval_every_n=3)
+[epoch 82 timing] total=18.84s | train: total=17.23s (data=0.38s, move=0.06s, compute=16.62s) | val-loss: total=1.61s (data=0.27s, move=0.00s, compute=1.27s)
+[train] epoch=83 step=100/242 loss=1.681481
+[train] epoch=83 step=200/242 loss=1.689787
+[epoch 83] train_loss=1.694103 val_loss(full)=2.364672 val_eval=skipped (eval_every_n=3)
+[epoch 83 timing] total=19.36s | train: total=17.81s (data=0.38s, move=0.06s, compute=17.19s) | val-loss: total=1.55s (data=0.27s, move=0.00s, compute=1.20s)
+[train] epoch=84 step=100/242 loss=1.683471
+[train] epoch=84 step=200/242 loss=1.686799
+[epoch 84] train_loss=1.687042 val_loss(full)=2.358361 val_recall@10(top-2048)=0.235840 val_ndcg@10(top-2048)=0.140057
+[epoch 84 timing] total=88.28s | train: total=17.31s (data=0.39s, move=0.06s, compute=16.68s) | val-loss: total=1.62s (data=0.30s, move=0.00s, compute=1.26s) | val-eval: total=69.34s (data=0.24s, move=0.00s, beam=68.93s, rank=0.07s)
+No improvement in val_ndcg@10 for 1 evaluation(s). Best so far: 0.141325 at epoch 81
+[train] epoch=85 step=100/242 loss=1.681546
+[train] epoch=85 step=200/242 loss=1.684487
+[epoch 85] train_loss=1.687855 val_loss(full)=2.357894 val_eval=skipped (eval_every_n=3)
+[epoch 85 timing] total=19.13s | train: total=17.49s (data=0.38s, move=0.06s, compute=16.86s) | val-loss: total=1.63s (data=0.28s, move=0.00s, compute=1.28s)
+[train] epoch=86 step=100/242 loss=1.672190
+[train] epoch=86 step=200/242 loss=1.677842
+[epoch 86] train_loss=1.679232 val_loss(full)=2.357301 val_eval=skipped (eval_every_n=3)
+[epoch 86 timing] total=19.18s | train: total=17.66s (data=0.40s, move=0.06s, compute=17.02s) | val-loss: total=1.52s (data=0.28s, move=0.00s, compute=1.17s)
+[train] epoch=87 step=100/242 loss=1.667744
+[train] epoch=87 step=200/242 loss=1.672803
+[epoch 87] train_loss=1.673290 val_loss(full)=2.358575 val_recall@10(top-2048)=0.235840 val_ndcg@10(top-2048)=0.142028
+[epoch 87 timing] total=87.47s | train: total=17.27s (data=0.41s, move=0.06s, compute=16.61s) | val-loss: total=1.61s (data=0.27s, move=0.00s, compute=1.27s) | val-eval: total=68.59s (data=0.25s, move=0.00s, beam=68.16s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.142028, eval_samples=2048)
+[train] epoch=88 step=100/242 loss=1.659348
+[train] epoch=88 step=200/242 loss=1.667900
+[epoch 88] train_loss=1.669470 val_loss(full)=2.367789 val_eval=skipped (eval_every_n=3)
+[epoch 88 timing] total=18.86s | train: total=17.23s (data=0.37s, move=0.06s, compute=16.62s) | val-loss: total=1.62s (data=0.28s, move=0.00s, compute=1.27s)
+[train] epoch=89 step=100/242 loss=1.662067
+[train] epoch=89 step=200/242 loss=1.663690
+[epoch 89] train_loss=1.665885 val_loss(full)=2.365379 val_eval=skipped (eval_every_n=3)
+[epoch 89 timing] total=19.17s | train: total=17.52s (data=0.36s, move=0.06s, compute=16.91s) | val-loss: total=1.65s (data=0.28s, move=0.01s, compute=1.30s)
+[train] epoch=90 step=100/242 loss=1.655767
+[train] epoch=90 step=200/242 loss=1.657280
+[epoch 90] train_loss=1.660832 val_loss(full)=2.356315 val_recall@10(top-2048)=0.247559 val_ndcg@10(top-2048)=0.145946
+[epoch 90 timing] total=86.35s | train: total=17.10s (data=0.37s, move=0.06s, compute=16.50s) | val-loss: total=1.62s (data=0.27s, move=0.00s, compute=1.28s) | val-eval: total=67.62s (data=0.25s, move=0.00s, beam=67.21s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.145946, eval_samples=2048)
+[train] epoch=91 step=100/242 loss=1.647172
+[train] epoch=91 step=200/242 loss=1.653881
+[epoch 91] train_loss=1.657034 val_loss(full)=2.348603 val_eval=skipped (eval_every_n=3)
+[epoch 91 timing] total=18.93s | train: total=17.31s (data=0.38s, move=0.06s, compute=16.70s) | val-loss: total=1.62s (data=0.27s, move=0.00s, compute=1.28s)
+[train] epoch=92 step=100/242 loss=1.649351
+[train] epoch=92 step=200/242 loss=1.647511
+[epoch 92] train_loss=1.649922 val_loss(full)=2.359299 val_eval=skipped (eval_every_n=3)
+[epoch 92 timing] total=19.16s | train: total=17.52s (data=0.38s, move=0.06s, compute=16.90s) | val-loss: total=1.64s (data=0.28s, move=0.00s, compute=1.29s)
+[train] epoch=93 step=100/242 loss=1.640405
+[train] epoch=93 step=200/242 loss=1.641978
+[epoch 93] train_loss=1.644021 val_loss(full)=2.358469 val_recall@10(top-2048)=0.242188 val_ndcg@10(top-2048)=0.142432
+[epoch 93 timing] total=87.40s | train: total=17.16s (data=0.36s, move=0.06s, compute=16.56s) | val-loss: total=1.55s (data=0.27s, move=0.00s, compute=1.21s) | val-eval: total=68.68s (data=0.27s, move=0.00s, beam=68.23s, rank=0.08s)
+No improvement in val_ndcg@10 for 1 evaluation(s). Best so far: 0.145946 at epoch 90
+[train] epoch=94 step=100/242 loss=1.638015
+[train] epoch=94 step=200/242 loss=1.639733
+[epoch 94] train_loss=1.642223 val_loss(full)=2.361328 val_eval=skipped (eval_every_n=3)
+[epoch 94 timing] total=18.81s | train: total=17.18s (data=0.40s, move=0.06s, compute=16.56s) | val-loss: total=1.62s (data=0.27s, move=0.00s, compute=1.28s)
+[train] epoch=95 step=100/242 loss=1.627783
+[train] epoch=95 step=200/242 loss=1.633615
+[epoch 95] train_loss=1.636196 val_loss(full)=2.361860 val_eval=skipped (eval_every_n=3)
+[epoch 95 timing] total=19.21s | train: total=17.61s (data=0.38s, move=0.06s, compute=17.00s) | val-loss: total=1.60s (data=0.26s, move=0.01s, compute=1.26s)
+[train] epoch=96 step=100/242 loss=1.627518
+[train] epoch=96 step=200/242 loss=1.628238
+[epoch 96] train_loss=1.632274 val_loss(full)=2.363449 val_recall@10(top-2048)=0.249023 val_ndcg@10(top-2048)=0.147966
+[epoch 96 timing] total=86.56s | train: total=17.34s (data=0.38s, move=0.06s, compute=16.72s) | val-loss: total=1.64s (data=0.29s, move=0.00s, compute=1.29s) | val-eval: total=67.58s (data=0.25s, move=0.00s, beam=67.16s, rank=0.08s)
+Saved new best checkpoint to: /home/hao/FRec/DisenID/checkpoints/TN/best.pt (best val_ndcg@10=0.147966, eval_samples=2048)
+[train] epoch=97 step=100/242 loss=1.625854
+[train] epoch=97 step=200/242 loss=1.631069
+[epoch 97] train_loss=1.631993 val_loss(full)=2.374378 val_eval=skipped (eval_every_n=3)
+[epoch 97 timing] total=18.85s | train: total=17.23s (data=0.39s, move=0.06s, compute=16.61s) | val-loss: total=1.62s (data=0.29s, move=0.00s, compute=1.27s)
+[train] epoch=98 step=100/242 loss=1.618321
+[train] epoch=98 step=200/242 loss=1.626079
+[epoch 98] train_loss=1.626488 val_loss(full)=2.361960 val_eval=skipped (eval_every_n=3)
+[epoch 98 timing] total=19.25s | train: total=17.60s (data=0.38s, move=0.06s, compute=16.99s) | val-loss: total=1.65s (data=0.27s, move=0.00s, compute=1.30s)
+[train] epoch=99 step=100/242 loss=1.605026
+[train] epoch=99 step=200/242 loss=1.613539
+[epoch 99] train_loss=1.617520 val_loss(full)=2.359255 val_recall@10(top-2048)=0.250000 val_ndcg@10(top-2048)=0.145723
+[epoch 99 timing] total=86.28s | train: total=17.16s (data=0.38s, move=0.06s, compute=16.56s) | val-loss: total=1.62s (data=0.27s, move=0.00s, compute=1.28s) | val-eval: total=67.49s (data=0.27s, move=0.00s, beam=67.06s, rank=0.07s)
+No improvement in val_ndcg@10 for 1 evaluation(s). Best so far: 0.147966 at epoch 96
+[train] epoch=100 step=100/242 loss=1.606674
+[train] epoch=100 step=200/242 loss=1.612513
+[epoch 100] train_loss=1.614956 val_loss(full)=2.358991 val_eval=skipped (eval_every_n=3)
+[epoch 100 timing] total=18.99s | train: total=17.35s (data=0.38s, move=0.06s, compute=16.72s) | val-loss: total=1.63s (data=0.28s, move=0.00s, compute=1.28s)
+[train] epoch=101 step=100/242 loss=1.599558
+[train] epoch=101 step=200/242 loss=1.608364
+[epoch 101] train_loss=1.608143 val_loss(full)=2.373805 val_eval=skipped (eval_every_n=3)
+[epoch 101 timing] total=19.32s | train: total=17.66s (data=0.39s, move=0.06s, compute=17.04s) | val-loss: total=1.65s (data=0.28s, move=0.00s, compute=1.31s)
+[train] epoch=102 step=100/242 loss=1.602908
+[train] epoch=102 step=200/242 loss=1.605735
+[epoch 102] train_loss=1.606142 val_loss(full)=2.374620 val_recall@10(top-2048)=0.251953 val_ndcg@10(top-2048)=0.145523
+[epoch 102 timing] total=86.23s | train: total=17.22s (data=0.37s, move=0.06s, compute=16.62s) | val-loss: total=1.63s (data=0.26s, move=0.00s, compute=1.29s) | val-eval: total=67.38s (data=0.25s, move=0.00s, beam=66.94s, rank=0.09s)
+No improvement in val_ndcg@10 for 2 evaluation(s). Best so far: 0.147966 at epoch 96
+[train] epoch=103 step=100/242 loss=1.591978
+[train] epoch=103 step=200/242 loss=1.598547
+[epoch 103] train_loss=1.599316 val_loss(full)=2.369103 val_eval=skipped (eval_every_n=3)
+[epoch 103 timing] total=18.70s | train: total=17.15s (data=0.37s, move=0.06s, compute=16.54s) | val-loss: total=1.55s (data=0.28s, move=0.00s, compute=1.20s)
+[train] epoch=104 step=100/242 loss=1.591058
+[train] epoch=104 step=200/242 loss=1.598636
+[epoch 104] train_loss=1.599030 val_loss(full)=2.382685 val_eval=skipped (eval_every_n=3)
+[epoch 104 timing] total=19.15s | train: total=17.49s (data=0.37s, move=0.06s, compute=16.88s) | val-loss: total=1.66s (data=0.28s, move=0.00s, compute=1.31s)
+[train] epoch=105 step=100/242 loss=1.588761
+[train] epoch=105 step=200/242 loss=1.591347
+[epoch 105] train_loss=1.590358 val_loss(full)=2.380324 val_recall@10(top-2048)=0.249512 val_ndcg@10(top-2048)=0.147480
+[epoch 105 timing] total=85.95s | train: total=17.11s (data=0.38s, move=0.06s, compute=16.50s) | val-loss: total=1.61s (data=0.27s, move=0.00s, compute=1.27s) | val-eval: total=67.22s (data=0.26s, move=0.00s, beam=66.77s, rank=0.07s)
+No improvement in val_ndcg@10 for 3 evaluation(s). Best so far: 0.147966 at epoch 96
+[train] epoch=106 step=100/242 loss=1.577961
+[train] epoch=106 step=200/242 loss=1.583942
+[epoch 106] train_loss=1.587525 val_loss(full)=2.382256 val_eval=skipped (eval_every_n=3)
+[epoch 106 timing] total=18.26s | train: total=16.73s (data=0.38s, move=0.05s, compute=16.13s) | val-loss: total=1.53s (data=0.26s, move=0.00s, compute=1.20s)
+[train] epoch=107 step=100/242 loss=1.567204
+[train] epoch=107 step=200/242 loss=1.577022
+[epoch 107] train_loss=1.583019 val_loss(full)=2.379321 val_eval=skipped (eval_every_n=3)
+[epoch 107 timing] total=18.46s | train: total=16.83s (data=0.35s, move=0.05s, compute=16.25s) | val-loss: total=1.63s (data=0.25s, move=0.00s, compute=1.30s)
+[train] epoch=108 step=100/242 loss=1.576629
+[train] epoch=108 step=200/242 loss=1.578941
+[epoch 108] train_loss=1.581350 val_loss(full)=2.386657 val_recall@10(top-2048)=0.247559 val_ndcg@10(top-2048)=0.145836
+[epoch 108 timing] total=85.00s | train: total=16.68s (data=0.39s, move=0.06s, compute=16.07s) | val-loss: total=1.60s (data=0.26s, move=0.00s, compute=1.28s) | val-eval: total=66.71s (data=0.26s, move=0.00s, beam=66.29s, rank=0.07s)
+No improvement in val_ndcg@10 for 4 evaluation(s). Best so far: 0.147966 at epoch 96
+[train] epoch=109 step=100/242 loss=1.570570
+[train] epoch=109 step=200/242 loss=1.572664
+[epoch 109] train_loss=1.575397 val_loss(full)=2.383987 val_eval=skipped (eval_every_n=3)
+[epoch 109 timing] total=18.55s | train: total=16.95s (data=0.37s, move=0.06s, compute=16.35s) | val-loss: total=1.60s (data=0.26s, move=0.00s, compute=1.28s)
+[train] epoch=110 step=100/242 loss=1.566788
+[train] epoch=110 step=200/242 loss=1.569560
+[epoch 110] train_loss=1.572185 val_loss(full)=2.388700 val_eval=skipped (eval_every_n=3)
+[epoch 110 timing] total=18.07s | train: total=16.45s (data=0.34s, move=0.05s, compute=15.90s) | val-loss: total=1.61s (data=0.25s, move=0.00s, compute=1.30s)
+[train] epoch=111 step=100/242 loss=1.565696
+[train] epoch=111 step=200/242 loss=1.565688
+[epoch 111] train_loss=1.569208 val_loss(full)=2.384859 val_recall@10(top-2048)=0.250977 val_ndcg@10(top-2048)=0.147010
+[epoch 111 timing] total=83.47s | train: total=16.16s (data=0.34s, move=0.05s, compute=15.60s) | val-loss: total=1.61s (data=0.26s, move=0.00s, compute=1.28s) | val-eval: total=65.70s (data=0.25s, move=0.00s, beam=65.29s, rank=0.07s)
+No improvement in val_ndcg@10 for 5 evaluation(s). Best so far: 0.147966 at epoch 96
+Early stopping triggered: no val_ndcg@10 improvement for 5 consecutive evaluation(s).
+Training finished. best_epoch=96, best_val_ndcg@10=0.147966
+Loaded best checkpoint from: /home/hao/FRec/DisenID/checkpoints/TN/best.pt
+[test] loss(full)=3.695746 recall@10(top-20211)=0.111276 ndcg@10(top-20211)=0.064822
+[test timing] test-loss: total=1.66s (data=0.26s, move=0.00s, compute=1.35s) | test-eval: total=510.58s (data=0.24s, move=0.01s, beam=509.67s, rank=0.60s)

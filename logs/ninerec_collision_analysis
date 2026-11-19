@@ -1,0 +1,364 @@
+/home/hao/miniconda3/bin/conda run -n frec-gpu --no-capture-output python /home/hao/FRec/DisenID/src/generation/check_collision.py
+Matplotlib created a temporary config/cache directory at /tmp/matplotlib-6r87dd1h because the default path (/home/hao/.config/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Loaded: /home/hao/FRec/DisenID/codebook/ninerec/semantic_ids_all.pt
+Total items: 69628
+Num layers : 3
+Codebook width: 256
+Model type: baseline
+Checkpoint: /mnt/data_2/data_hao/DisenID/sid_checkpoints/ninerec/bili_TN_QB/final.pt
+
+Layer 0:
+  Used clusters : 256 / 256
+  Coverage      : 1.0000
+
+Layer 1:
+  Used clusters : 254 / 256
+  Coverage      : 0.9922
+
+Layer 2:
+  Used clusters : 235 / 256
+  Coverage      : 0.9180
+
+Collision analysis (full semantic ID):
+  Unique semantic IDs     : 67736
+  Items in collisions     : 3563
+  Collision item rate     : 0.0512
+  Collision group rate    : 0.0247
+
+Top-10 largest collision groups:
+  (191, 161, 52) -> 9
+
+Semantic ID (191, 161, 52) hit 9 items:
+members (domain_id, item_id): [(2, 2600), (2, 44408), (2, 44921), (2, 45024), (2, 49201), (2, 58467), (2, 64004), (2, 77185), (2, 79801)]
+
+Resolved titles:
+
+domain=Bili (id=2)  item_id=2600 (num=2600)
+  zh: 【明日方舟·语音集·干员资料】夕 Dusk【CV. yukana】
+  en: [Ark of Tomorrow·Voice Collection·Operator Information]Xi Dusk[CV. yukana]
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=44408 (num=44408)
+  zh: 【明日方舟·语音集·干员资料】能天使 Exusiai【CV.石见舞菜香 】
+  en: [Ark of Tomorrow·Voice Collection·Carrier Information]Able Angel Exusiai[CV.Iwami Maika]
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=44921 (num=44921)
+  zh: 【明日方舟·语音集·干员资料】早露 Poca【CV. 上田丽奈】
+  en: [Tomorrow's Ark·Voice Collection·Operator Information]Zaolu Poca[CV. Ueda Reina]
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=45024 (num=45024)
+  zh: 【明日方舟·语音集·干员资料】空弦 Archetto【CV. 水濑祈】
+  en: [Tomorrow's Ark·Voice Collection·Carrier Information]Empty String Archetto[CV. Minase Inquiry]
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=49201 (num=49201)
+  zh: 【明日方舟·语音集·干员资料】拉普兰德 Lappland【CV. 今井麻美】
+  en: [Ark of Tomorrow·Voice Collection·Operator Information]Lappland Lappland[CV. Asami Imai]
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=58467 (num=58467)
+  zh: 【明日方舟·语音集·干员资料】年 Nian【CV. 悠木碧】【动态立绘】
+  en: [Tomorrow's Ark·Voice Collection·Carrier Information] Year Nian [CV. Youmubi] [Dynamic Vertical Painting]
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=64004 (num=64004)
+  zh: 【明日方舟·语音集·干员资料】斯卡蒂 Skadi【CV. 佐藤利奈】
+  en: [Tomorrow's Ark, Voice Collection, Operator Information] Skadi Skadi [CV. Sato Rina]
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=77185 (num=77185)
+  zh: 【明日方舟·语音集·干员资料】W【CV. 竹达彩奈】
+  en: [Tomorrow's Ark, Voice Collection, Operator Information] W [CV. Takeda Ayana]
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=79801 (num=79801)
+  zh: 【明日方舟·语音集·干员资料】莫斯提马 Mostima【CV. 水树奈奈】
+  en: [Tomorrow's Ark · Voice Collection · Operator Information] Mostima Mostima [CV. Nana Mizuki]
+--------------------------------------------------------------------------------
+  (137, 32, 69) -> 8
+
+Semantic ID (137, 32, 69) hit 8 items:
+members (domain_id, item_id): [(2, 519), (2, 676), (2, 12263), (2, 25860), (2, 26053), (2, 28348), (2, 47953), (2, 49907)]
+
+Resolved titles:
+
+domain=Bili (id=2)  item_id=519 (num=519)
+  zh: 【亮记生物鉴定】网络热传生物鉴定36
+  en: [Liangji Biological Identification] Network Heat Transfer Biological Identification 36
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=676 (num=676)
+  zh: 【亮记生物鉴定】网络热传生物鉴定16
+  en: [Liangji Biological Identification] Network Heat Transfer Biological Identification 16
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=12263 (num=12263)
+  zh: 【亮记生物鉴定】近期网络热传生物合集
+  en: [Liangji Biological Identification]Recent Internet Heat Transfer Biological Collection
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=25860 (num=25860)
+  zh: 【亮记生物鉴定】网络热传生物鉴定37
+  en: [Liangji Biological Identification] Network Heat Transfer Biological Identification 37
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=26053 (num=26053)
+  zh: 【亮记生物鉴定】网络热传生物鉴定24
+  en: [Liangji Biological Identification] Network Heat Transfer Biological Identification 24
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=28348 (num=28348)
+  zh: 【亮记生物鉴定】网络热传生物鉴定33
+  en: [Liangji Biological Identification] Network Heat Transfer Biological Identification 33
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=47953 (num=47953)
+  zh: 【亮记生物鉴定】网络热传生物鉴定22
+  en: [Liangji Biological Identification] Network Heat Transfer Biological Identification 22
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=49907 (num=49907)
+  zh: 【亮记生物鉴定】网络热传生物鉴定31
+  en: [Liangji Biological Identification] Network Heat Transfer Biological Identification 31
+--------------------------------------------------------------------------------
+  (174, 92, 112) -> 8
+
+Semantic ID (174, 92, 112) hit 8 items:
+members (domain_id, item_id): [(2, 4853), (2, 13730), (2, 21945), (2, 22213), (2, 26508), (2, 28247), (2, 34153), (2, 79578)]
+
+Resolved titles:
+
+domain=Bili (id=2)  item_id=4853 (num=4853)
+  zh: 黑胶试听｜YOUTH - Troye Sivan
+  en: Vinyl Audition｜YOUTH - Troye Sivan
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=13730 (num=13730)
+  zh: 黑胶试听｜Lovesick Girls - BLACKPINK
+  en: Vinyl Audition｜Lovesick Girls - BLACKPINK
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=21945 (num=21945)
+  zh: 黑胶试听｜Wildest Dream - Taylor Swift
+  en: Vinyl Audition｜Wildest Dream - Taylor Swift
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=22213 (num=22213)
+  zh: 黑胶试听｜On The Ground - ROSÉ
+  en: Vinyl Audition｜On The Ground - ROSÉ
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=26508 (num=26508)
+  zh: 黑胶试听｜Like Water - WENDY
+  en: Vinyl Audition｜Like Water - WENDY
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=28247 (num=28247)
+  zh: 黑胶试听｜Someone Like You - Adele
+  en: Vinyl Audition｜Someone Like You - Adele
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=34153 (num=34153)
+  zh: 黑胶试听｜FOOLS - Troye Sivan
+  en: Vinyl Audition｜FOOLS - Troye Sivan
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=79578 (num=79578)
+  zh: 黑胶试听｜Sunflower - Post Malone/Swae Lee
+  en: Vinyl Audition｜Sunflower - Post Malone/Swae Lee
+--------------------------------------------------------------------------------
+  (58, 133, 144) -> 7
+
+Semantic ID (58, 133, 144) hit 7 items:
+members (domain_id, item_id): [(2, 12272), (2, 12276), (2, 12277), (2, 15591), (2, 15594), (2, 33085), (2, 40287)]
+
+Resolved titles:
+
+domain=Bili (id=2)  item_id=12272 (num=12272)
+  zh: 胥渡吧：明朝帝王对话（10）：马皇后进群，嘉靖飞天！
+  en: Xudu Bar: Dialogue with Emperors of the Ming Dynasty (10): Empress Ma enters the group, Jiajing is flying!
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=12276 (num=12276)
+  zh: 胥渡吧：明朝帝王对话（7）：海瑞和张居正入群申请被拒！
+  en: Xudu Bar: Dialogue with Emperors of the Ming Dynasty (7): Hai Rui and Zhang Juzheng's application to join the group was rejected!
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=12277 (num=12277)
+  zh: 胥渡吧：明朝帝王对话（8）：天启带着自制小板凳加入群聊
+  en: Xudu Bar: Dialogue with Emperors of the Ming Dynasty (8): Tianqi joined the group chat with a self-made small bench
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=15591 (num=15591)
+  zh: 唐朝帝王对话（3）：唐朝最怕老婆的皇帝，李世民无语！
+  en: Dialogue with Emperors of the Tang Dynasty (3): Li Shimin, the emperor who was most afraid of his wife in the Tang Dynasty, was speechless!
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=15594 (num=15594)
+  zh: 胥渡吧：明朝帝王对话（3）：明朝最深情的皇帝非他莫属
+  en: Xudu Bar: Dialogue with Emperors of the Ming Dynasty (3): He is the most affectionate emperor in the Ming Dynasty
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=33085 (num=33085)
+  zh: 胥渡吧：明朝帝王对话（5）：万历皇帝进群，千万别提墓！
+  en: Let Xu Du: Dialogue with Emperors of the Ming Dynasty (5): Emperor Wanli enters the group, don't mention the tomb!
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=40287 (num=40287)
+  zh: 汉朝帝王对话（2）：那我走？海昏侯刘贺进群！
+  en: Dialogue with Emperors of the Han Dynasty (2): Then I'll go? Marquis of Haihun Liu He joins the group!
+--------------------------------------------------------------------------------
+  (46, 43, 203) -> 7
+
+Semantic ID (46, 43, 203) hit 7 items:
+members (domain_id, item_id): [(2, 34312), (2, 49148), (2, 75265), (2, 111181), (2, 116329), (2, 121162), (2, 134530)]
+
+Resolved titles:
+
+domain=Bili (id=2)  item_id=34312 (num=34312)
+  zh: 【大熊猫和花】有这颜值，还要啥战斗力啊
+  en: [Giant Panda and Flower] With such good looks, what kind of combat power do you need?
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=49148 (num=49148)
+  zh: 【大熊猫】唯一一只被国外退回来的国宝（滑稽）
+  en: [Giant Panda] The only national treasure returned from abroad (funny)
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=75265 (num=75265)
+  zh: 【大熊猫和花】和花绝技之霸王花掌，一巴掌把对手扇蒙
+  en: [Giant Panda and Flowers]Hehua's stunt, the king's flower palm, slaps the opponent with a slap
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=111181 (num=111181)
+  zh: 葫芦娃：我只想独自安好，可大姐姐们太烦熊了【大熊猫福双】
+  en: Huluwa: I just want to be safe by myself, but the big sisters are so annoying [Giant Panda Fushuang]
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=116329 (num=116329)
+  zh: 大熊猫福宝 见人就撒娇抱大腿 你以为撒娇就不用回家了吗？211108
+  en: The giant panda Fubao acts coquettishly and hugs his thighs when he sees people. Do you think you don't have to go home if you act coquettishly? 211108
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=121162 (num=121162)
+  zh: 大熊猫【和花】悠闲挂高高～
+  en: Giant panda [Hehua] hangs high leisurely~
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=134530 (num=134530)
+  zh: 【大熊猫和花】粑粑，我最爱你 我要抱你 亲你 给你我最重的爱 mua
+  en: [Giant Panda and Flowers]Baba, I love you the most I want to hug you, kiss you, give you my greatest love mua
+--------------------------------------------------------------------------------
+  (204, 102, 127) -> 6
+
+Semantic ID (204, 102, 127) hit 6 items:
+members (domain_id, item_id): [(0, 35088), (0, 56799), (0, 469496), (1, 62603), (2, 28170), (2, 91964)]
+
+Resolved titles:
+
+domain=QB (id=0)  item_id=v35088 (num=35088)
+  zh: 胖妹花1200搭暖棚，亲戚朋友来帮忙，胖妹炖上10斤酱大骨，吃过瘾了
+  en: The fat sister spend 1200 to build a warming hut, relatives and friends to help, the fat sister stewed on 10 pounds of soy sauce big bone, eaten addictive
+--------------------------------------------------------------------------------
+domain=QB (id=0)  item_id=v56799 (num=56799)
+  zh: 葡萄施肥干活累，胖妹焖5斤猪蹄来安慰，肥而不腻，婆婆吃过瘾了
+  en: Grape fertiliser work tired, the fat sister stewed 5 pounds of pig's feet to comfort, fat and not greasy, mother-in-law eaten addicted to the
+--------------------------------------------------------------------------------
+domain=QB (id=0)  item_id=v469496 (num=469496)
+  zh: 爸妈秀恩爱？胖妹感到意外，铁锅炖2条胖头鱼，又香又辣吃过瘾
+  en: Mum and Dad Showing Love? Fat sister was surprised, iron pot stewed 2 fat head fish, and fragrant and spicy eat addictive!
+--------------------------------------------------------------------------------
+domain=TN (id=1)  item_id=v62603 (num=62603)
+  zh: 76岁奶奶想吃肉，胖妹260炖6斤羊排，香辣够味，祖孙三人吃过瘾
+  en: 76-year-old grandmother wants to eat meat, fat sister 260 stew 6 pounds of mutton chops, spicy flavor, grandchildren three people ate addictive
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=28170 (num=28170)
+  zh: 胖妹做五香酱牛头，铁锅炖4小时，越嚼越香，老爸这次差点喝高了
+  en: Fat girl made beef head with five-spice sauce, stewed in iron pot for 4 hours, the more you chew, the more delicious
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=91964 (num=91964)
+  zh: 胖妹家又开荤，炖10斤酱驴骨，大洋挑三拣四，胖妹一脚上去真解气
+  en: The fat girl’s house opened meat again, stewed 10 catties of donkey bones in sauce, and the ocean was picky, and the fat girl was really relieved
+--------------------------------------------------------------------------------
+  (191, 76, 22) -> 6
+
+Semantic ID (191, 76, 22) hit 6 items:
+members (domain_id, item_id): [(2, 1680), (2, 8833), (2, 10632), (2, 17127), (2, 39903), (2, 44253)]
+
+Resolved titles:
+
+domain=Bili (id=2)  item_id=1680 (num=1680)
+  zh: 《明日方舟》EP - Keep the torch
+  en: Tomorrow's Ark EP - Keep the torch
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=8833 (num=8833)
+  zh: 《明日方舟》SideStory「覆潮之下」活动先导PV
+  en: "Tomorrow's Ark" SideStory "Under the Tide" Event Pilot PV
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=10632 (num=10632)
+  zh: 《明日方舟》EP - Renegade
+  en: Tomorrow's Ark EP - Renegade
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=17127 (num=17127)
+  zh: 《明日方舟》EP - Requiem
+  en: Tomorrow's Ark EP - Requiem
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=39903 (num=39903)
+  zh: 《明日方舟》EP - Reconnection
+  en: Tomorrow's Ark EP - Reconnection
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=44253 (num=44253)
+  zh: 《明日方舟》EP - Awaken
+  en: Tomorrow's Ark EP - Awaken
+--------------------------------------------------------------------------------
+  (205, 78, 103) -> 5
+
+Semantic ID (205, 78, 103) hit 5 items:
+members (domain_id, item_id): [(0, 248461), (0, 271550), (0, 272242), (0, 353392), (0, 500024)]
+
+Resolved titles:
+
+domain=QB (id=0)  item_id=v248461 (num=248461)
+  zh: 财阀集团少奶奶，竟屡遭婆婆陷害威胁（第二集）
+  en: The plutocratic group of young grannies, even repeatedly framed by the mother-in-law threat (second episode)
+--------------------------------------------------------------------------------
+domain=QB (id=0)  item_id=v271550 (num=271550)
+  zh: 财阀集团少奶奶，竟屡遭婆婆陷害威胁（第四集）
+  en: The youngest grandma of a wealthy conglomerate is repeatedly framed and threatened by her mother-in-law (Episode 4)
+--------------------------------------------------------------------------------
+domain=QB (id=0)  item_id=v272242 (num=272242)
+  zh: 财阀集团少奶奶，竟屡遭婆婆陷害威胁（第五集）
+  en: Zaibatsu Group young granny, was repeatedly framed by the mother-in-law threat (episode 5)
+--------------------------------------------------------------------------------
+domain=QB (id=0)  item_id=v353392 (num=353392)
+  zh: 财阀集团少奶奶，竟屡遭婆婆陷害威胁（第三集）
+  en: The plutocratic group of young grannies, was repeatedly framed by the mother-in-law threat (the third episode)
+--------------------------------------------------------------------------------
+domain=QB (id=0)  item_id=v500024 (num=500024)
+  zh: 财阀集团少奶奶，竟屡遭婆婆陷害威胁（第一集）
+  en: The plutocratic group of young grannies, was repeatedly framed by the mother-in-law threat (the first episode)
+--------------------------------------------------------------------------------
+  (208, 121, 254) -> 5
+
+Semantic ID (208, 121, 254) hit 5 items:
+members (domain_id, item_id): [(1, 12976), (2, 6172), (2, 9323), (2, 12119), (2, 19012)]
+
+Resolved titles:
+
+domain=TN (id=1)  item_id=v12976 (num=12976)
+  zh: 当你伸出中指，不同狗狗的反应！网友：第二个吓到我了
+  en: When you stretch out the middle finger, the reaction of different dogs! Netizen: the second scared me
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=6172 (num=6172)
+  zh: 二哈：宁看我 聪 明 吗 ？
+  en: Erha: Would you rather see me smart?
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=9323 (num=9323)
+  zh: 狗狗生气的时候绝对不要捏它的嘴！！
+  en: Never pinch your dog's mouth when he's angry! !
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=12119 (num=12119)
+  zh: 这这只狗......让我笑了七天七夜！
+  en: This dog... made me laugh for seven days and seven nights!
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=19012 (num=19012)
+  zh: 狗狗生气的时候绝对不要捏它的嘴！
+  en: Never pinch your dog's mouth when he's angry!
+--------------------------------------------------------------------------------
+  (94, 111, 11) -> 5
+
+Semantic ID (94, 111, 11) hit 5 items:
+members (domain_id, item_id): [(2, 625), (2, 63277), (2, 63960), (2, 65518), (2, 104725)]
+
+Resolved titles:
+
+domain=Bili (id=2)  item_id=625 (num=625)
+  zh: 冰墩墩：妈我出去卖萌回来了！！
+  en: Bingdundun: Mom, I went out to sell cuteness and came back! !
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=63277 (num=63277)
+  zh: 我与冰墩墩、雪容融的亲们接触，快来看卖萌大比拼
+  en: I got in touch with the relatives of Bing Dun Dun and Xue Rong Rong, come and watch the cute competition
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=63960 (num=63960)
+  zh: 被拿捏了！ 邓超治好了冰墩墩的社牛
+  en: Got pinched! Deng Chao cured the cow in Bingdundun
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=65518 (num=65518)
+  zh: 【高清纯享版】冰墩墩：下班了，再见北京冬奥！
+  en: [HD pure enjoyment version] Bing Dun Dun: After get off work, goodbye Beijing Winter Olympics!
+--------------------------------------------------------------------------------
+domain=Bili (id=2)  item_id=104725 (num=104725)
+  zh: “冰墩墩”“雪容融”又又又被卡住了，网友：冰墩墩像极了过年吃胖的我
+  en: "Bing Dun Dun" and "Xue Rong Rong" are stuck again, netizens: Bing Dun Dun looks like me who has been eating fat during the New Year
+--------------------------------------------------------------------------------
+
+Process finished with exit code 0

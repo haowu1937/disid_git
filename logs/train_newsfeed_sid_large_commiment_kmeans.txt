@@ -1,0 +1,28 @@
+nohup: ignoring input
+Using device: cuda
+[Codebook Init] Running KMeans codebook initialization before training (max_init_batches=20).
+[KMeans Init] Start codebook initialization with KMeans.
+[KMeans Init] Settings: num_layers=3, codebook_size=512, hidden_dim=64, max_init_batches=20, seed=42
+[KMeans Init] Finished feature collection: batches=20, samples=81920, residual_shape=(81920, 64)
+[KMeans Init][Layer 0] Running KMeans on residuals ...
+[KMeans Init][Layer 0] done | used_codes=512/512 | mean_residual_l2_before=0.640946 | mean_residual_l2_after=0.012544
+[KMeans Init][Layer 1] Running KMeans on residuals ...
+[KMeans Init][Layer 1] done | used_codes=512/512 | mean_residual_l2_before=0.012544 | mean_residual_l2_after=0.009481
+[KMeans Init][Layer 2] Running KMeans on residuals ...
+[KMeans Init][Layer 2] done | used_codes=512/512 | mean_residual_l2_before=0.009481 | mean_residual_l2_after=0.007528
+[KMeans Init] All codebooks initialized successfully.
+[Codebook Init] Computing utilization metrics immediately after KMeans init...
+[Codebook Init] Post-init metrics | overall:ppl=1521.7,H=7.328 | collision_item_rate=0.0182 | collision_group_rate=0.0083 | L0:ppl=504.6,H=6.224,util=100.00% | L1:ppl=507.8,H=6.230,util=100.00% | L2:ppl=509.4,H=6.233,util=100.00%
+Epoch 001 | loss=0.006807 | recon=0.004518 | codebook=0.000763 | overall:ppl=1084.2,H=6.989 | collision_item_rate=0.5818 | collision_group_rate=0.2495 | L0:ppl=200.5,H=5.301,util=55.08% | L1:ppl=477.2,H=6.168,util=100.00% | L2:ppl=493.3,H=6.201,util=100.00%
+Epoch 002 | loss=0.009411 | recon=0.003968 | codebook=0.001814 | overall:ppl=1224.9,H=7.111 | collision_item_rate=0.5017 | collision_group_rate=0.1897 | L0:ppl=307.9,H=5.730,util=95.31% | L1:ppl=459.4,H=6.130,util=100.00% | L2:ppl=481.2,H=6.176,util=100.00%
+Epoch 003 | loss=0.010746 | recon=0.003845 | codebook=0.002300 | overall:ppl=1258.4,H=7.138 | collision_item_rate=0.4927 | collision_group_rate=0.1919 | L0:ppl=300.6,H=5.706,util=99.41% | L1:ppl=491.0,H=6.197,util=100.00% | L2:ppl=500.0,H=6.215,util=100.00%
+Epoch 004 | loss=0.011920 | recon=0.003784 | codebook=0.002712 | overall:ppl=1319.8,H=7.185 | collision_item_rate=0.4939 | collision_group_rate=0.2011 | L0:ppl=344.3,H=5.842,util=99.61% | L1:ppl=493.5,H=6.202,util=100.00% | L2:ppl=501.1,H=6.217,util=100.00%
+Epoch 005 | loss=0.012871 | recon=0.003743 | codebook=0.003043 | overall:ppl=1287.3,H=7.160 | collision_item_rate=0.5027 | collision_group_rate=0.2052 | L0:ppl=321.7,H=5.773,util=99.41% | L1:ppl=493.2,H=6.201,util=100.00% | L2:ppl=498.1,H=6.211,util=100.00%
+Epoch 006 | loss=0.013316 | recon=0.003722 | codebook=0.003198 | overall:ppl=1304.7,H=7.174 | collision_item_rate=0.5036 | collision_group_rate=0.2092 | L0:ppl=335.0,H=5.814,util=99.41% | L1:ppl=492.1,H=6.199,util=100.00% | L2:ppl=498.9,H=6.212,util=100.00%
+Epoch 007 | loss=0.013822 | recon=0.003705 | codebook=0.003372 | overall:ppl=1323.7,H=7.188 | collision_item_rate=0.5050 | collision_group_rate=0.2107 | L0:ppl=350.4,H=5.859,util=99.41% | L1:ppl=492.5,H=6.199,util=100.00% | L2:ppl=497.8,H=6.210,util=100.00%
+Epoch 008 | loss=0.014181 | recon=0.003691 | codebook=0.003497 | overall:ppl=1350.4,H=7.208 | collision_item_rate=0.5017 | collision_group_rate=0.2139 | L0:ppl=371.0,H=5.916,util=99.41% | L1:ppl=492.5,H=6.200,util=100.00% | L2:ppl=499.1,H=6.213,util=100.00%
+Epoch 009 | loss=0.014423 | recon=0.003683 | codebook=0.003580 | overall:ppl=1340.6,H=7.201 | collision_item_rate=0.5069 | collision_group_rate=0.2125 | L0:ppl=360.8,H=5.888,util=99.41% | L1:ppl=494.3,H=6.203,util=100.00% | L2:ppl=500.3,H=6.215,util=100.00%
+Epoch 010 | loss=0.014595 | recon=0.003678 | codebook=0.003639 | overall:ppl=1343.7,H=7.203 | collision_item_rate=0.5056 | collision_group_rate=0.2152 | L0:ppl=362.2,H=5.892,util=99.41% | L1:ppl=495.0,H=6.205,util=100.00% | L2:ppl=501.1,H=6.217,util=100.00%
+Epoch 011 | loss=0.014690 | recon=0.003674 | codebook=0.003672 | overall:ppl=1363.7,H=7.218 | collision_item_rate=0.5034 | collision_group_rate=0.2143 | L0:ppl=377.8,H=5.934,util=99.41% | L1:ppl=496.4,H=6.207,util=100.00% | L2:ppl=500.9,H=6.216,util=100.00%
+Epoch 012 | loss=0.014748 | recon=0.003670 | codebook=0.003693 | overall:ppl=1341.9,H=7.202 | collision_item_rate=0.5070 | collision_group_rate=0.2136 | L0:ppl=361.3,H=5.890,util=99.41% | L1:ppl=496.1,H=6.207,util=100.00% | L2:ppl=499.4,H=6.213,util=100.00%
+Epoch 013 | loss=0.014913 | recon=0.003666 | codebook=0.003749 | overall:ppl=1371.0,H=7.223 | collision_item_rate=0.5040 | collision_group_rate=0.2156 | L0:ppl=383.2,H=5.949,util=99.41% | L1:ppl=496.5,H=6.208,util=100.00% | L2:ppl=501.7,H=6.218,util=100.00%

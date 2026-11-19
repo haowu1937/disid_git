@@ -1,0 +1,5 @@
+nohup: ignoring input
+Using device: cuda
+[Codebook Init] Running KMeans codebook initialization before training (max_init_batches=300).
+[KMeans Init] Start codebook initialization with KMeans.
+[KMeans Init] Settings: num_layers=3, codebook_size=512, hidden_dim=256, max_init_batches=300, seed=42

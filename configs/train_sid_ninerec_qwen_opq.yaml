@@ -1,0 +1,57 @@
+# configs/train_sid_ninerec_qwen_opq.yaml
+
+model:
+  type: opq
+
+  input_dim: 2048
+
+  # OPQ/PQ 要求 PQ 维度能被 n_codebook 整除。
+  # 2048 / 32 = 64，因此这里推荐先用 32。
+  n_codebook: 32
+
+  codebook_size: 256
+
+  # RPG 中使用 METRIC_INNER_PRODUCT。
+  metric: inner_product
+
+  # 先保持 false，和 RPG 默认更接近。
+  l2_normalize: false
+
+  opq_use_gpu: false
+  opq_gpu_id: 0
+  faiss_omp_num_threads: 32
+
+  # 可选降维，例如 512。
+  # 设为 null 时不降维，OPQ 输出维度等于 input_dim。
+  opq_output_dim: null
+
+data:
+  dataset_name: public
+
+  domain_configs:
+    - name: QB
+      embed_path: /mnt/data_2/data_hao/DisenID/data/QB/Qwen3VL_emb/shard_00000_fused.npy
+    - name: TN
+      embed_path: /mnt/data_2/data_hao/DisenID/data/TN/Qwen3VL_emb/shard_00000_fused.npy
+    - name: Bili # Bili500k
+      embed_path: /mnt/data_2/data_hao/DisenID/data/Bili_500K/Qwen3VL_emb/shard_00000_fused.npy
+
+  expected_embed_dim: 2048
+  num_domains: 3
+
+training:
+  seed: 42
+  batch_size: 256
+  num_workers: 0
+  pin_memory: true
+
+  # 默认使用全部 item 训练 OPQ。
+  # 如果数据太大，可以设成 200000 或 500000。
+  opq_train_max_samples: null
+
+  # debug 用；正式实验保持 null。
+  max_collect_batches: null
+
+  save_faiss_index: true
+
+  save_dir: /mnt/data_2/data_hao/DisenID/sid_checkpoints/ninerec/qwen_bili500k_TN_QB_opq32
